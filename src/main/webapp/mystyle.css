@@ -1,0 +1,126 @@
+body{
+    height: 100%;
+    width: 100%;
+}
+.jumbotron{
+    padding-top: 100px;
+}
+.jumbotron .container >h1{
+    color: #23528F;
+}
+#IntroHD{
+    font-size: 30px;
+}
+#myTabcontent {
+    overflow: auto;
+    word-wrap:break-word ;
+}
+.twopage {
+    height: 950px;
+    background-color: #cccccc;
+    /*margin-top: -50px;*/
+}
+.piccc{
+    width:auto;
+}
+.twopagetext{
+    color: white;
+    margin-top: 150px;
+    text-align: center;
+    width: 100%;
+}
+.twopagetext p{
+    margin-top: 25px;
+    font-size: 20px;
+}
+.twopage  img{
+    width: 100%;
+    height: auto;
+}
+.carousel {
+    height: 500px;
+}
+.carousel .item {
+    height: 500px;
+}
+.carousel .item img {
+    width: 100%;
+}
+.carousel-control.left {
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),to(rgba(0,0,0,0)));
+    background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+    background-repeat: repeat-x;
+}
+.carousel-control.right {
+    right: 0;
+    left: auto;
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),to(rgba(0,0,0,0)));
+    background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+    background-repeat: repeat-x;
+}
+.threepage{
+    margin-top: 25px;
+    height: 500px;
+}
+.threepage p{
+    font-size: 25px;
+}
+.fourpage {
+    margin-top: 25px;
+}
+
+/*.fourpage canvas{*/
+    /*align-items: center;*/
+    /*border: 1px solid #ccc;*/
+/*}*/
+
+/*footer*/
+.fivepage{
+    background-image: url("imgs/Yande - 399190 tagme.png");
+    background-color: #cccccc;
+    background-position: center center;
+    background-size: cover;
+    filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6;
+    position: relative;
+    bottom: -19px;
+    width: auto;
+    height: auto;
+    clear:both;
+}
+footer {
+    text-align: center;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.copyright {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.social-icons li {
+    display: inline;
+    margin: 2px;
+}
+
+.social-icons li a {
+    font-size: 30px;
+    color: #ddd;
+    padding:5px 10px;
+    border-radius: 10px;
+}
+
+.social-icons li a:hover {
+    text-decoration: none;
+}
+.social-icons li a {
+    background-color: #828682;
+    padding: 2px 5px;
+}
+.social-icons li a:hover {
+    color: #ffffff; }

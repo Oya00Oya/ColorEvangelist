@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.box{
+    position: relative;
+    float: left;
+}
+.content {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    box-shadow: 0 0 5px #cccccc;
+    border-radius: 5px;
+}
+.content img{
+    width: 190px;
+    height: auto;
+}
+#container{
+    padding-top: 60px;
+}
+body{
+background-image: url("imgs/6d5a04dbf269a930c66fb92ba38bfabe.jpg");
+    background-repeat: repeat;
+}
