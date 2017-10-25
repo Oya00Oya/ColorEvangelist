@@ -11,7 +11,7 @@ public class test {
             final Process p = Runtime.getRuntime().exec("python func/eval.py /home/orashi/IdeaProjects/web-ssm-shortsem/func/temp/2/1500410196029.png /home/orashi/IdeaProjects/web-ssm-shortsem/func/temp/1/1500410196029.png 65156198416");
             new Thread(new Runnable() {
 
-                @Override
+                //@Override
                 public void run() {
                     BufferedReader br = new BufferedReader(
                             new InputStreamReader(p.getInputStream()));

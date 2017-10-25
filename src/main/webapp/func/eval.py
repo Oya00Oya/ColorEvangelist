@@ -41,12 +41,12 @@ colormap = colormap.convert('RGB')
 print(sketch.size)
 
 ts = transforms.Compose([
-    transforms.Scale((sketch.size[0] // (64 * pack) * 64, sketch.size[1] // (64 * pack) * 64), Image.BICUBIC),
+    transforms.Scale((sketch.size[1] // (64 * pack) * 64, sketch.size[0] // (64 * pack) * 64), Image.BICUBIC),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 ts2 = transforms.Compose([
-    transforms.Scale(target_size, Image.NEAREST),
+    transforms.Scale((sketch.size[1] // (64 * pack) * 16, sketch.size[0] // (64 * pack) * 16), Image.NEAREST),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
@@ -58,14 +58,14 @@ sketch, colormap = sketch.unsqueeze(0).cuda(), colormap.unsqueeze(0).cuda()
 
 mask = torch.rand(1, 1, colormap.shape[2], colormap.shape[3]).ge(0.2).float().cuda()
 
-print(mask.shape,valid_mask.shape,sketch.shape)
+print(mask.shape,valid_mask.shape,sketch.shape)#wrong right wrong
 mask = mask * valid_mask #rmask #+ torch.rand(rmask.shape).ge(0.92) .float().cuda() * wmask
 
 
 
 hint = torch.cat((colormap * mask, mask), 1)
 
-print(hint.shape,sketch.shape)
+print(hint.shape,sketch.shape)# both wrong
 
 out = netG(Variable(sketch, volatile=True), Variable(hint, volatile=True)).data
 vutils.save_image(out.mul(0.5).add(0.5), '../webapps/ROOT/output/' + args[3]+'_out.png')
