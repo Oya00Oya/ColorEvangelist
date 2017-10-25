@@ -145,7 +145,7 @@ $(function () {
 
                 $('#painting_status').hide();
                 var now = new Date().getTime();
-                $('#output').attr('src', 'http://localhost:8080/'+ 'output/'+data+'_out.png').show();//获取了当前的需要输出的图片的
+                $('#output').attr('src', ''+ 'output/'+data+'_out.png').show();//获取了当前的需要输出的图片的
                 // $('#output_min').attr('src', origin + '/images/out_min/' + image_id + '_0.png?' + now).show();//没什么用，并没有地方用这个输出了，
                 // 估计是获得一个小图版的
 

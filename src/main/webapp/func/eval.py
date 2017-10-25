@@ -21,7 +21,7 @@ args = sys.argv
 
 
 netG = def_netG(ngf=64)
-netG.load_state_dict(torch.load('/home/orashi/IdeaProjects/web-ssm-shortsem/func/netG_epoch_only512_0.005_0.00001.pth'))
+netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only512_0.005_0.00001.pth'))
 netG.cuda().eval()
 
 sketch = Image.open(args[2]).convert('L')
@@ -68,5 +68,5 @@ hint = torch.cat((colormap * mask, mask), 1)
 print(hint.shape,sketch.shape)
 
 out = netG(Variable(sketch, volatile=True), Variable(hint, volatile=True)).data
-vutils.save_image(out.mul(0.5).add(0.5), '/opt/tomcat/webapps/ROOT/output/' + args[3]+'_out.png')
+vutils.save_image(out.mul(0.5).add(0.5), '../webapps/ROOT/output/' + args[3]+'_out.png')
 print('Success')

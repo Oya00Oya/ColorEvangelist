@@ -41,7 +41,7 @@ function post() {
             function timer_tick() {
                 console.log("timer_tick");
                 $.ajax({
-                    url: 'http://localhost:8080/'+ 'output_sketch/'+data+'_out.png',
+                    url: ''+ 'output_sketch/'+data+'_out.png',
                     success: function () {
                         $('#output_sketch').attr('src', '/output_sketch/'+data+'_out.png').show();
                         window.clearInterval(t1);

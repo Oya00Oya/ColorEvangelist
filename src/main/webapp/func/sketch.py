@@ -35,5 +35,5 @@ def default_loader(path):  # fixed
 
 img = cv2.imread(args[1], cv2.IMREAD_COLOR)
 img = demoDoG((img / 255.0).astype(np.float32), sig=0.5) * 255.0
-cv2.imwrite('/opt/tomcat/webapps/ROOT/output_sketch/'+args[2]+'_out.png', img)
+cv2.imwrite('../webapps/ROOT/output_sketch/'+args[2]+'_out.png', img)
 print('Success')
