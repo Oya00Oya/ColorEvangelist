@@ -8,7 +8,7 @@ import java.io.*;
 public class test {
     public static void main(String args[]) {
         try {
-            final Process p = Runtime.getRuntime().exec("source /home/orashi/.bashrc;python func/eval.py /home/orashi/IdeaProjects/web-ssm-shortsem/func/temp/2/1500410196029.png /home/orashi/IdeaProjects/web-ssm-shortsem/func/temp/1/1500410196029.png 65156198416");
+            final Process p = Runtime.getRuntime().exec("python func/eval.py /home/orashi/IdeaProjects/web-ssm-shortsem/func/temp/2/1500410196029.png /home/orashi/IdeaProjects/web-ssm-shortsem/func/temp/1/1500410196029.png 65156198416");
             new Thread(new Runnable() {
 
                 @Override

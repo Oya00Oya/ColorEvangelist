@@ -51,7 +51,7 @@ public class testController {
 
             try {
                 String command=null;
-                command="source /home/orashi/.bashrc;python ../webapps/ROOT/func/sketch.py"+" ../webapps/ROOT/func/temp/3/"+message+" "+time_sketch;//这里需要修改
+                command="python ../webapps/ROOT/func/sketch.py"+" ../webapps/ROOT/func/temp/3/"+message+" "+time_sketch;//这里需要修改
                 log.info("command:"+command);
                 final Process p1 = Runtime.getRuntime().exec(command);
                 new Thread(new Runnable() {
@@ -144,7 +144,7 @@ public class testController {
            //下面与深度学习框架交互
             try {
                 String command=null;
-                command="source /home/orashi/.bashrc;python ../webapps/ROOT/func/eval.py"+" "+message1+" "+message2+" "+time01;//这里需要修改
+                command="python ../webapps/ROOT/func/eval.py"+" "+message1+" "+message2+" "+time01;//这里需要修改
                 log.info("command:"+command);
                 final Process p = Runtime.getRuntime().exec(command);
                 new Thread(new Runnable() {
