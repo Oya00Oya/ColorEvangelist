@@ -200,10 +200,6 @@ $(function () {
             }
             blobUrlToBlob($('#background').attr('src'), function (line_blob) {
                 ajaxData.append('line', line_blob);
-                if (line_blob.size > 1000000) {//通过二进制数据的size来判断规模
-                    alert('Image too large to colorize');
-                    return;
-                }
                 post(ajaxData);
             });
         });
