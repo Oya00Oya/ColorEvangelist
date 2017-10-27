@@ -1,17 +1,7 @@
-import random
-import torch
-import torch.nn.functional as F
-import torch.nn as nn
-import torch.backends.cudnn as cudnn
-import torch.optim as optim
 import torch.utils.data
-import torchvision.datasets as dset
 import torchvision.transforms as transforms
-import torchvision.utils as vutils
-import torchvision.models as M
 from torch.autograd import Variable
 from PIL import Image
-import math
 import sys
 import numpy as np
 from models.naive_model import def_netG
@@ -54,16 +44,12 @@ ts2 = transforms.Compose([
 sketch, colormap = ts(sketch), ts2(colormap)
 sketch, colormap = sketch.unsqueeze(0).cuda(), colormap.unsqueeze(0).cuda()
 
-# rmask = colormap.mean(1).lt(0.99).float().cuda().view(1, 1, colormap.shape[2], colormap.shape[3])
-# wmask = colormap.mean(1).ge(0.99).float().cuda().view_as(rmask)
 
 mask = torch.rand(1, 1, colormap.shape[2], colormap.shape[3]).ge(0.2).float().cuda()
-mask = mask * valid_mask  # rmask #+ torch.rand(rmask.shape).ge(0.92) .float().cuda() * wmask
+mask = mask * valid_mask
 
 hint = torch.cat((colormap * mask, mask), 1)
 
 out = netG(Variable(sketch, volatile=True), Variable(hint, volatile=True)).data
-transforms.ToPILImage()(out.mul(0.5).add(0.5).squeeze().cpu()).resize(ori_size, Image.BICUBIC).save('../webapps/ROOT/output/' + args[3] + '_out.png')
+transforms.ToPILImage()(out.mul(0.5).add(0.5).squeeze().cpu()).resize(ori_size, Image.BICUBIC).save(args[3])
 print('Success')
-
-# TODO: resize back

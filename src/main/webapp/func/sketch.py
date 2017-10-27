@@ -15,10 +15,10 @@ IMG_EXTENSIONS = [
 
 args = sys.argv
 
-def demoDoG(img, sig=0.55, tau=0.975, phi=10000):
+def demoDoG(img, sig=0.55, tau=0.95, phi=10000):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     xdog_params = {
-        'kappa': 4.5, 'sigma': sig, 'tau': tau, 'phi': phi,
+        'kappa': 4.5, 'sigma': sig, 'tau': tau, 'phi': phi, # sig: continuity  tau:agile threshold  phi: step func
         'edgeType': lime.NPR_EDGE_XDOG
     }
     xdog = lime.edgeDoG(gray, xdog_params)
