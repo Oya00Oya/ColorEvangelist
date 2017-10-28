@@ -136,7 +136,7 @@ public class testController {
             //String realPath = request.getSession().getServletContext().getRealPath("/upload");//将文件保存在当前工程下的一个upload文件
             System.out.println(message+"  "+messageline);
 
-            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("../webapps/func/input/colorization/line", message));//将文件的输入流输出到一个新的文件
+            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("../webapps/ROOT/func/input/colorization/line", message));//将文件的输入流输出到一个新的文件
             FileUtils.copyInputStreamToFile(file1.getInputStream(),new File("../webapps/ROOT/func/input/colorization/pic",messageline));
             message1="../webapps/ROOT/func/input/colorization/pic/"+message;//背景图片目录以及图片名称
             message2="../webapps/ROOT/func/input/colorization/line/"+messageline;//图片线条目录名称
