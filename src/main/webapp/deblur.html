@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PaintsPytorch</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--自己的样式文件 -->
+    <link href="mystyle.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!--////////////////////////////////////////////////////////////////////////////////////////;-->
+    <!-- Canvas toBlob polyfill -->
+    <script src="https://cdn.bootcss.com/javascript-canvas-to-blob/3.6.0/js/canvas-to-blob.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="ajaxfileupload.js"></script>
+    <!-- jQuery Cookie -->
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- wColorPicker -->
+    <link rel="stylesheet" href="wPaint/lib/wColorPicker.min.css">
+    <script src="wPaint/lib/paletteGenerator.js"></script>
+    <script src="wPaint/lib/wColorPicker.min.js?ver3"></script>
+    <script src="http://123.206.84.193/do.js"></script>
+    <!-- wPaint -->
+    <link rel="stylesheet" href="wPaint/wPaint.min.css">
+    <script src="wPaint/wPaint.min.js"></script>
+    <script src="wPaint/plugins/main/src/wPaint.menu.main.js"></script>
+    <!-- main -->
+    <script src="colorization.js"></script>
+
+    <!-- fileend -->
+    <style>
+        .wColorPicker-palettes-holder { white-space: nowrap; } /* wColorPicker workaround for Firefox */
+    </style>
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-default navbar-static-top navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header nav-title">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="navbar-brand">
+                <img src="imgs/search_cat_128px_1141878_easyicon.net.png"  style=" display: inline;width: 24px">
+                <a  href="index.jsp">PaintsPytorch</a>
+                <a  href="deblur.html">Deblur</a>
+            </span>
+        </div>
+        <div class="collapse navbar-collapse navbar-right is-collapse">
+            <ul class="nav navbar-nav">
+                <li ><a href="#intro">Introduction</a></li>
+                <li><a href="#howto">How to</a></li>
+                <li><a href="#start">Start</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        More
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="waterfal.html">More examples</a></li>
+                        <li><a href="https://www.hao123.com/">Links</a></li>
+                        <li class="divider"></li>
+                        <li><a href="http://weibo.com/u/5798464248?refer_flag=1001030201_&is_all=1">About</a></li>
+                        <li><a href="#contt">Contect us</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav><!--nav-->
+
+<div class="fourpage" id="start">
+    <div class="well" >
+        <div class="container" >
+            <h1 style="color: #337ab7">Start to use</h1>
+            <span class="label label label-primary">What the hell is this part?</span>
+        <div class="row" >
+            <div class="col-md-6" style=" width: 325px;height: 500px;border: 1px solid #8c8c8c;align-content: center">
+                <input type="file" name="file" id="file1" style="display:none;" onchange="filechange1(event)">
+                <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
+                <img src="" width="300px" height="auto" id="img-change1" alt="Please click here to choose your picture.">
+                <br>
+                <button id="btn1" class="btn btn-primary">Update</button>
+            </div>
+            <div class="col-md-6" style=" width: 325px;height: 500px;border: 1px solid #8c8c8c">
+                <img id="output_sketch" src="" width="300px" height="auto" alt="You will get your Picture here.">
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="fivepage" id="contt">
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="social-icons">
+                <li><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
+                <li><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
+                <li><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
+                <li><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
+            </ul>
+            <div class="copyright">
+               <p style="color: white">©2017 StyleTransfer <a href="#" target="_blank" title="">-- QiStudio</a></p>
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+
+<!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="sketch.js"></script>
+</body>
+</html>

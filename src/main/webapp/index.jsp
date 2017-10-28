@@ -34,7 +34,7 @@
     <script src="wPaint/wPaint.min.js"></script>
     <script src="wPaint/plugins/main/src/wPaint.menu.main.js"></script>
     <!-- main -->
-    <script src="myppppp.js"></script>
+    <script src="colorization.js"></script>
 
     <!-- fileend -->
     <style>
@@ -58,7 +58,8 @@
             </button>
             <span class="navbar-brand">
                 <img src="imgs/search_cat_128px_1141878_easyicon.net.png"  style=" display: inline;width: 24px">
-                <a  href="#">PaintsPytorch</a>
+                <a  href="index.jsp">PaintsPytorch</a>
+                <a  href="deblur.html">Deblur</a>
             </span>
         </div>
         <div class="collapse navbar-collapse navbar-right is-collapse">
@@ -278,6 +279,6 @@
 
 <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="myjs.js"></script>
+<script src="sketch.js"></script>
 </body>
 </html>
