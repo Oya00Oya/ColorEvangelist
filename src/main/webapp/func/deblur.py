@@ -19,5 +19,5 @@ Trans = transforms.Compose([
 blurry = Trans(Image.open(args[1]).convert('RGB')).unsqueeze(0).cuda()
 
 out = netG(Variable(blurry, volatile=True)).data
-transforms.ToPILImage()(out.mul(0.5).add(0.5).squeeze().cpu()).save(args[2])
+transforms.ToPILImage()(out.mul(0.5).add(0.5).squeeze().clamp(0, 1).cpu()).save(args[2])
 print('Success')
