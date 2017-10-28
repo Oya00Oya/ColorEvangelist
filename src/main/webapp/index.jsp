@@ -7,8 +7,7 @@
     <title>PaintsPytorch</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!--自己的样式文件 -->
     <link href="mystyle.css" rel="stylesheet">
@@ -276,10 +275,9 @@
     </footer>
 </div>
 <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
-<!--<script src="jquery-3.2.1.min.js"></script>-->
 
 <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
-<script src="bootstrap.min.js"></script> 
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="myjs.js"></script>
 </body>
 </html>
