@@ -41,9 +41,9 @@ function post() {
             function timer_tick() {
                 console.log("timer_tick");
                 $.ajax({
-                    url: ''+ 'output_sketch/'+data+'_out.png',
+                    url: ''+ '/func/output/sketch/'+data+'_out.png',
                     success: function () {
-                        $('#output_sketch').attr('src', '/output_sketch/'+data+'_out.png').show();
+                        $('#output_sketch').attr('src', '/func/output/sketch/'+data+'_out.png').show();
                         window.clearInterval(t1);
                     }
                 });

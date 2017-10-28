@@ -47,11 +47,11 @@ public class testController {
            // String realPath = request.getSession().getServletContext().getRealPath("/upload");//将文件保存在当前工程下的一个upload文件
             //System.out.println(realPath);
             message=time_sketch+".png";
-            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("../webapps/ROOT/func/temp/3", message));//将文件的输入流输出到一个新的文件
+            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("../webapps/ROOT/func/input/sketch", message));//将文件的输入流输出到一个新的文件
 
             try {
                 String command=null;
-                command="python ../webapps/ROOT/func/sketch.py"+" ../webapps/ROOT/func/temp/3/"+message+" "+time_sketch;//这里需要修改
+                command="python ../webapps/ROOT/func/sketch.py"+" ../webapps/ROOT/func/input/sketch/"+message+" "+"../webapps/ROOT/func/output/sketch/"+time_sketch+"_out.png";//这里需要修改
                 log.info("command:"+command);
                 final Process p1 = Runtime.getRuntime().exec(command);
                 new Thread(new Runnable() {
@@ -136,15 +136,15 @@ public class testController {
             //String realPath = request.getSession().getServletContext().getRealPath("/upload");//将文件保存在当前工程下的一个upload文件
             System.out.println(message+"  "+messageline);
 
-            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("../webapps/ROOT/func/temp/1", message));//将文件的输入流输出到一个新的文件
-            FileUtils.copyInputStreamToFile(file1.getInputStream(),new File("../webapps/ROOT/func/temp/2",messageline));
-            message1="../webapps/ROOT/func/temp/2/"+message;//背景图片目录以及图片名称
-            message2="../webapps/ROOT/func/temp/1/"+messageline;//图片线条目录名称
+            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("../webapps/func/input/colorization/line", message));//将文件的输入流输出到一个新的文件
+            FileUtils.copyInputStreamToFile(file1.getInputStream(),new File("../webapps/ROOT/func/input/colorization/pic",messageline));
+            message1="../webapps/ROOT/func/input/colorization/pic/"+message;//背景图片目录以及图片名称
+            message2="../webapps/ROOT/func/input/colorization/line/"+messageline;//图片线条目录名称
             re_image_name=time01;
            //下面与深度学习框架交互
             try {
                 String command=null;
-                command="python ../webapps/ROOT/func/colorization.py"+" "+message1+" "+message2+" "+"../webapps/ROOT/output/"+time01+"_out.png";
+                command="python ../webapps/ROOT/func/colorization.py"+" "+message1+" "+message2+" "+"../webapps/ROOT/func/output/colorization/"+time01+"_out.png";
                 log.info("command:"+command);
                 final Process p = Runtime.getRuntime().exec(command);
                 new Thread(new Runnable() {
