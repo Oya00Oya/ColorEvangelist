@@ -144,7 +144,7 @@ public class testController {
            //下面与深度学习框架交互
             try {
                 String command=null;
-                command="python ../webapps/ROOT/func/eval.py"+" "+message1+" "+message2+" "+time01;//这里需要修改
+                command="python ../webapps/ROOT/func/colorization.py"+" "+message1+" "+message2+" "+"../webapps/ROOT/output/"+time01+"_out.png";
                 log.info("command:"+command);
                 final Process p = Runtime.getRuntime().exec(command);
                 new Thread(new Runnable() {
