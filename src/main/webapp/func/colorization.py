@@ -29,8 +29,6 @@ valid_mask = (torch.FloatTensor(np.array(back.resize(target_size, Image.NEAREST)
 colormap.paste(back, (0, 0, desire_size[0], desire_size[1]), back)
 colormap = colormap.convert('RGB')
 
-print(sketch.size)
-
 ts = transforms.Compose([
     transforms.Scale((target_size[1] * 4, target_size[0] * 4), Image.BICUBIC),
     transforms.ToTensor(),
