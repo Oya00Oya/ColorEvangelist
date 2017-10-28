@@ -3,7 +3,7 @@
  */
 //上传图片一
 $("#img-change1").click(function () {
-    $("#file1").click();
+    // $("#file1").click();
 })
 /*$("#file").change(function (event) {*/
 var filechange1=function(event){
@@ -23,6 +23,7 @@ var filechange1=function(event){
         $("#img-change1").attr("src",imgURL);
         // 使用下面这句可以在内存中释放对此 url 的伺服，跑了之后那个 URL 就无效了
         // URL.revokeObjectURL(imgURL);
+        post();
     }
 };
 

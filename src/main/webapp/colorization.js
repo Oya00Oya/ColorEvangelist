@@ -44,7 +44,7 @@ $(function () {
         }
     });
 
-    $('#load_line_file').on('change', function (e) {
+    $('#load_file_colorization').on('change', function (e) {
         var file = e.target.files[0];
         if (file.type.indexOf('image') < 0) {
             console.log("not a pic!!!")

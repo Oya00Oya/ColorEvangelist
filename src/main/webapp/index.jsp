@@ -22,7 +22,8 @@
     <!-- jQuery Cookie -->
     <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <!-- jQuery UI -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <!-- wColorPicker -->
     <link rel="stylesheet" href="wPaint/lib/wColorPicker.min.css">
@@ -38,7 +39,11 @@
 
     <!-- fileend -->
     <style>
-        .wColorPicker-palettes-holder { white-space: nowrap; } /* wColorPicker workaround for Firefox */
+        .wColorPicker-palettes-holder {
+            white-space: nowrap;
+        }
+
+        /* wColorPicker workaround for Firefox */
     </style>
     <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
     <!--[if lt IE 9]>
@@ -57,14 +62,14 @@
                 <span class="icon-bar"></span>
             </button>
             <span class="navbar-brand">
-                <img src="imgs/search_cat_128px_1141878_easyicon.net.png"  style=" display: inline;width: 24px">
-                <a  href="index.jsp">PaintsPytorch</a>
-                <a  href="deblur.html">Deblur</a>
+                <img src="imgs/search_cat_128px_1141878_easyicon.net.png" style=" display: inline;width: 24px">
+                <a href="index.jsp">PaintsPytorch</a>
+                <a href="deblur.html">Deblur</a>
             </span>
         </div>
         <div class="collapse navbar-collapse navbar-right is-collapse">
             <ul class="nav navbar-nav">
-                <li ><a href="#intro">Introduction</a></li>
+                <li><a href="#intro">Introduction</a></li>
                 <li><a href="#howto">How to</a></li>
                 <li><a href="#start">Start</a></li>
                 <li class="dropdown">
@@ -89,8 +94,10 @@
         <h1>Welcome to use PaintsPytorch</h1>
         <hr>
         <p> It automatically applies the semantic features of an existing painting to an unfinished sketch.</p>
-            <p>Two different functions can provide you with magical colouring experience!</p>
-        <a href="#start"><button  class="btn btn-primary btn-lg " id="IntroHD">START NOW!!!</button></a>
+        <p>Two different functions can provide you with magical colouring experience!</p>
+        <a href="#start">
+            <button class="btn btn-primary btn-lg " id="IntroHD">START NOW!!!</button>
+        </a>
     </div>
 </div><!--onepage-->
 <div class="twopage" id="fourp">
@@ -100,7 +107,8 @@
             <P>Different style of paintting can be made with this method </P>
         </div>
         <div style="margin: 0 auto">
-            <div id="carousel-example-grneric" class="carousel slide" data-interval="3000" style="height: 350px;" data-ride="carousel">
+            <div id="carousel-example-grneric" class="carousel slide" data-interval="3000" style="height: 350px;"
+                 data-ride="carousel">
                 <ol class="carousel-indicators" style="margin-top: 200px">
                     <li data-target="#carousel-example-grneric" data-slide="1" class="active"></li>
                     <li data-target="#carousel-example-grneric" data-slide="2" class=""></li>
@@ -114,7 +122,7 @@
                                 <img class="col-md-6 visible-xs-block" src="imgs/remb.jpg" style="position: relative;"/>
                             </div>
                         </div>
-                        <div class="carousel-caption" >
+                        <div class="carousel-caption">
                             <h1>Rem</h1>
                             <p>Easy to get different style of Rem</p>
                             <a href="#" class="btn btn-lg btn-primary" role="button">Try now!!!</a>
@@ -124,23 +132,25 @@
                         <div class="row">
                             <div class="piccc">
                                 <img class="col-md-6 hidden-xs" src="imgs/mikunnnnn.jpg" style="position: relative;"/>
-                                <img class="col-md-6 visible-xs-block" src="imgs/mikunnnnnb.jpg" style="position: relative;"/>
+                                <img class="col-md-6 visible-xs-block" src="imgs/mikunnnnnb.jpg"
+                                     style="position: relative;"/>
                             </div>
                         </div>
-                        <div class="carousel-caption" >
+                        <div class="carousel-caption">
                             <h1>Hatsune Miku</h1>
                             <p>Easy to get Pink Miku, Snow Miku or others</p>
                             <a href="#" class="btn btn-lg btn-primary" role="button">Try now!!!</a>
                         </div>
                     </div>
-                    <div class="item " >
+                    <div class="item ">
                         <div class="row">
                             <div class="piccc">
                                 <img class="col-md-6 hidden-xs" src="imgs/megumin04.jpg" style="position: relative;"/>
-                                <img class="col-md-6 visible-xs-block" src="imgs/migumin04b.jpg" style="position: relative;"/>
+                                <img class="col-md-6 visible-xs-block" src="imgs/migumin04b.jpg"
+                                     style="position: relative;"/>
                             </div>
                         </div>
-                        <div class="carousel-caption" >
+                        <div class="carousel-caption">
                             <h1>Other characters</h1>
                             <p>Also easy to create other characters,even your original.</p>
                             <a href="#" class="btn btn-lg btn-primary" role="button">Try now!!!</a>
@@ -162,9 +172,9 @@
     <div class="container">
         <h3>How to</h3>
         <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="#step1" data-toggle="tab">Step1</a> </li>
-            <li ><a href="#step2" data-toggle="tab">Step2</a> </li>
-            <li ><a href="#step3" data-toggle="tab">Step3</a> </li>
+            <li class="active"><a href="#step1" data-toggle="tab">Step1</a></li>
+            <li><a href="#step2" data-toggle="tab">Step2</a></li>
+            <li><a href="#step3" data-toggle="tab">Step3</a></li>
         </ul>
         <div id="myTabcontent" class="tab-content">
             <div class="tab-pane fade in active" id="step1">
@@ -209,42 +219,46 @@
     </div>
 </div><!--3page-->
 <div class="fourpage" id="start">
-    <div class="well" >
-        <div class="container" >
-            <h1 style="color: #337ab7">Start to use</h1>
-            <span class="label label label-primary">What the hell is this part?</span>
-        <div class="row" >
-            <div class="col-md-6" style=" width: 325px;height: 500px;border: 1px solid #8c8c8c;align-content: center">
-                <input type="file" name="file" id="file1" style="display:none;" onchange="filechange1(event)">
-                <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
-                <img src="" width="300px" height="auto" id="img-change1" alt="Please click here to choose your picture.">
-                <br>
-                <button id="btn1" class="btn btn-primary">Update</button>
+    <div class="well">
+        <div class="container">
+            <h1>Sketch Extraction</h1>
+            <div class="row" style="background: #cccccc;padding: 10px;min-height: 300px;">
+                <div class="col-md-6">
+                    <input type="file" name="file" id="file1" onchange="filechange1(event)" style="display: inline;">
+                    <button id="btn1" class="btn btn-primary" style="display: inline;">Upload</button>
+                    <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
+                    <img src="" style="max-width:100%;margin-top: 10px" id="img-change1"
+                         alt="Please click here to choose your picture.">
+
+                </div>
+                <div class="col-md-6">
+                    <img id="output_sketch" style="max-width:100%;margin-top: 40px" src="" alt="You will get your Picture here.">
+                </div>
             </div>
-            <div class="col-md-6" style=" width: 325px;height: 500px;border: 1px solid #8c8c8c">
-                <img id="output_sketch" src="" width="300px" height="auto" alt="You will get your Picture here.">
-            </div>
-        </div>
         </div>
     </div>
     <div class="well">
         <div class="container">
-            <span class="label label label-primary">Welcome to the auto color service!</span>
-            <div class="well" style="background-color:#cccccc">
-                <input id="blur_k" type="hidden"  />
-                <div class="row">
-                    <div class="col-md-12" style="margin-bottom: 10px;">
-                        <i class="glyphicon glyphicon-picture"></i> sketch: <input id="load_line_file" type="file" style="display: inline;">
-                    </div>
-                    <div class="col-md-6">
-                        <button id="submit" class="btn btn-large btn-primary" disabled><i class="icon-edit icon-white"></i> colour</button>
-                        <span id="painting_status" style="display:none"></span>
-                    </div>
+
+            <input id="blur_k" type="hidden"/>
+            <h1>Colorization</h1>
+            <div class="row" style="background: #cccccc;padding: 10px">
+                <div class="col-md-12" style="margin-bottom: 10px;">
+                    <input id="load_file_colorization" type="file" style="display: inline;">
+                    <button id="submit" class="btn btn-large btn-primary" disabled>
+                        <i class="icon-edit icon-white"></i>
+                        color
+                    </button>
+                </div>
+                <div class="col-md-6">
+
+                    <span id="painting_status" style="display:none"></span>
                 </div>
             </div>
-            <div class="row" style="margin-top:42px;">
-                <div class="col-xs-11 col-sm-6">
-                    <div id="img_pane" style="display:none">
+
+            <div class="row" style="background: #cccccc;padding: 45px 10px 10px 10px;min-height: 300px;">
+                <div class="col-xs-11 col-sm-6" style="max-width: 100%;">
+                    <div id="img_pane" style="display:none;">
                         <div id="wPaint" style="position:relative; background-color:rgba(0,0,255,0); border:solid 1px">
                             <img id="background" style="max-width:100%" src="">
                         </div>
@@ -252,7 +266,7 @@
                 </div>
                 <div class="col-xs-1 visible-xs-block"></div><!-- for dragging on narrow screen(smartphones)-->
                 <div class="col-xs-11 col-sm-6">
-                    <img id="output" style="display:none; max-width:100%; border:solid 1px black">
+                    <img id="output" style="display:none; max-width:100%;">
                 </div>
                 <div class="col-xs-1 visible-xs-block"></div>
             </div>
@@ -270,7 +284,7 @@
                 <li><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
             </ul>
             <div class="copyright">
-               <p style="color: white">©2017 StyleTransfer <a href="#" target="_blank" title="">-- QiStudio</a></p>
+                <p style="color: white">©2017 PaintsTorch <a href="#" target="_blank" title="">-- QiStudio</a></p>
             </div>
         </div>
     </footer>
