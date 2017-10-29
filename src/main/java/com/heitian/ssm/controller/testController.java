@@ -33,7 +33,7 @@ public class testController {
     }
     @RequestMapping(value = "/upload/sketch.do")
     @ResponseBody
-    public long  imgUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) throws IOException {
+    public long  uploadSketch(@RequestParam("file") MultipartFile file, HttpServletRequest request) throws IOException {
         String tishi="no";
         long time_sketch;time_sketch=System.currentTimeMillis();
         log.info("imgupload");
@@ -101,7 +101,7 @@ public class testController {
     }
     @RequestMapping(value = "/upload/colorization.do")
     @ResponseBody
-    public synchronized String paintUpload1(@RequestParam("ref") MultipartFile file1, @RequestParam("line") MultipartFile file, @RequestParam("id") String id,@RequestParam("blur") String blur ,HttpServletRequest request) throws IOException {
+    public String uploadColorization(@RequestParam("ref") MultipartFile file1, @RequestParam("line") MultipartFile file, @RequestParam("id") String id,@RequestParam("blur") String blur ,HttpServletRequest request) throws IOException {
         String tishi="no";
         String message1="";
         String message2="";
@@ -176,10 +176,7 @@ public class testController {
     }
     @RequestMapping(value = "paint.do")
     @ResponseBody
-    public   Long getImageBinary(){
+    public   Long getColorizationOutputImageName(){
         return re_image_name;
     }
-
 }
-
-

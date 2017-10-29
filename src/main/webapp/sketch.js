@@ -28,7 +28,6 @@ var filechange1=function(event){
 };
 
 
-
 function post() {
     var post_return=false;
     $.ajaxFileUpload({
