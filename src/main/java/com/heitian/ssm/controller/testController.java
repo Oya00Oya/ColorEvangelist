@@ -31,7 +31,7 @@ public class testController {
         log.info("test");
         return "index";
     }
-    @RequestMapping(value = "imgUpload.do")
+    @RequestMapping(value = "/upload/sketch.do")
     @ResponseBody
     public long  imgUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) throws IOException {
         String tishi="no";
@@ -99,26 +99,7 @@ public class testController {
         }
         return time_sketch;
     }
-    @RequestMapping(value = "imgUpload2.do")
-    @ResponseBody
-    public synchronized String imgUpload2(@RequestParam("file2") MultipartFile file, HttpServletRequest request) throws IOException {
-        String tishi="no";
-        log.info("imgupload");
-        System.out.println("arrive here");
-        if(!file.isEmpty()) {
-            log.info("文件不为空");
-            System.out.println(file.getOriginalFilename());
-            String message = System.currentTimeMillis() + file.getOriginalFilename();//现在的文件名是时间戳加原文件名，出现图片相同时，读取不出来的bug
-            String realPath = request.getSession().getServletContext().getRealPath("/upload");//将文件保存在当前工程下的一个upload文件
-            System.out.println(realPath);
-            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("D://weblearn//shortsem//web-ssm-shortsem//target//web-ssm//upload2", message));//将文件的输入流输出到一个新的文件
-            message="upload/"+message;
-
-            tishi="yes";//返回yes,表示存储成功，可以使用try,catch来捕捉错误，这里偷懒不用
-        }
-        return tishi;
-    }
-    @RequestMapping(value = "post.do")
+    @RequestMapping(value = "/upload/colorization.do")
     @ResponseBody
     public synchronized String paintUpload1(@RequestParam("ref") MultipartFile file1, @RequestParam("line") MultipartFile file, @RequestParam("id") String id,@RequestParam("blur") String blur ,HttpServletRequest request) throws IOException {
         String tishi="no";

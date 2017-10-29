@@ -83,7 +83,7 @@ $(function () {
         $.ajax({
             t1:0,
             type: 'POST',
-            url: origin + '/post.do',
+            url: origin + '/upload/colorization.do',
             data: input_data,//这个data是发到服务器的数据
             cache: false,
             contentType: false,

@@ -32,7 +32,7 @@ var filechange1=function(event){
 function post() {
     var post_return=false;
     $.ajaxFileUpload({
-        url: '/imgUpload.do',
+        url: '/upload/sketch.do',
         fileElementId:'file1',//////////////////这个需要改吗
         dataType:'txt',
         secureuri : false,
