@@ -224,15 +224,14 @@
             <h1>Sketch Extraction</h1>
             <div class="row" style="background: #cccccc;padding: 10px;min-height: 300px;">
                 <div class="col-md-6">
-                    <input type="file" name="file" id="file1" onchange="filechange1(event)" style="display: inline;">
-                    <button id="btn1" class="btn btn-primary" style="display: inline;">Upload</button>
+                    <input type="file" name="file" id="file1" onchange="filechange1(event)">
                     <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
                     <img src="" style="max-width:100%;margin-top: 10px" id="img-change1"
                          alt="Please click here to choose your picture.">
 
                 </div>
                 <div class="col-md-6">
-                    <img id="output_sketch" style="max-width:100%;margin-top: 40px" src="" alt="You will get your Picture here.">
+                    <img id="output_sketch" style="max-width:100%;margin-top: 34px" src="" alt="You will get your Picture here.">
                 </div>
             </div>
         </div>

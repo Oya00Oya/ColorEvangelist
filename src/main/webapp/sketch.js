@@ -58,9 +58,10 @@ function post() {
     return post_return;
 }
 
-$("#btn1").click(function () {
-    post();
-});
+// $("#btn1").click(function () {
+//     post();
+// });
+
 //上传图片3
 $("#img-change2").click(function () {
     $("#file2").click();
