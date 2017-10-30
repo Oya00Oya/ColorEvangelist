@@ -1,8 +1,7 @@
 /**
  * Created by ysyco on 2017/7/7.
  */
-var image_id
-var origin = '';//这里应该是需要一个url的，但是他有个resetOrigin（）函数，如果url不对会通过resetOrigin重新设置一个，好像是连接到他们的接口
+
 
 // cf. https://github.com/websanova/wPaint/blob/master/src/wPaint.js#L243
 $.fn.wPaint.extend({
@@ -26,7 +25,6 @@ $.fn.wPaint.extend({
 //这个是用来延伸出那个canvas的画板的
 
 $(function () {
-    image_id = 'test_id';
 
     $('#img_pane').show(); // for $.fn.wPaint
     $('#wPaint').wPaint({
@@ -62,28 +60,17 @@ $(function () {
         var wPaintOuterWidth = $('#wPaint').outerWidth(true);
         $('#img_pane .span6').width(wPaintOuterWidth);
         $('#img_pane').width(wPaintOuterWidth * 2 + 30);
-        colorize(uniqueid()); // update image_id
+        colorize(); // update image_id
     });
 //这个load不是ajax的，是jQuery的load当背景加载完成后，运行该函数，应该与设定画板的大小有关
-    //--- functions
 
-    function uniqueid() {
-        var idstr = String.fromCharCode(Math.floor((Math.random() * 25) + 65));
-        do {
-            var ascicode = Math.floor((Math.random() * 42) + 48);
-            if (ascicode < 58 || ascicode > 64) {
-                idstr += String.fromCharCode(ascicode);
-            }
-        } while (idstr.length < 32);
-        return idstr;
-    }
-//让它变得唯一？
+    //--- functions
     function post(input_data) {
 
         $.ajax({
             t1:0,
             type: 'POST',
-            url: origin + '/upload/colorization.do',
+            url: '/upload/colorization.do',
             data: input_data,//这个data是发到服务器的数据
             cache: false,
             contentType: false,
@@ -103,8 +90,6 @@ $(function () {
             error: function () {//失败
                 $('#painting_status').attr('class', 'text-error').text('UPLOAD ERROR').show();
                 $('#submit').prop('disabled', false);
-                err_origin = origin
-                while( err_origin == origin ){  resetOrigin() }
             },
             complete: function () {//不管失败还是成功都回调用的
                 $('#submit').prop('disabled', false);//复原
@@ -127,27 +112,10 @@ $(function () {
         //发送 HTTP 请求，使用传递给 open() 方法的参数，以及传递给该方法的可选请求体
     }
 
-    function resetOrigin() {//错误的时候使用，重新设置origin//这个要改改吧，他修改了url的地址，切换线路吗？
-        if (location.hostname === 'paintschainer.preferred.tech') {
-            if (location.protocol === 'https:') {
-                origin = '//paintschainer-api.preferred.tech';
-            } else {
-                origin = 'http://paint20' + (Math.floor(Math.random() * 4) + 1) + '.preferred.tech'; // 1 ~ 4
-            }
-        }
-    }
-
-    function colorize(new_image_id) {
+    function colorize() {
         $('#wPaint').wPaint('imageCanvas').toBlob(function (ref_blob) {
             var ajaxData = new FormData();
-            ajaxData.append('id', new_image_id || image_id);
-            ajaxData.append('blur', $('#blur_k').val());//获取input里面的值
             ajaxData.append('ref', ref_blob);
-            if ( new_image_id ) {
-                image_id = new_image_id;
-                origin = '';//初始化
-                resetOrigin()
-            }
             blobUrlToBlob($('#background').attr('src'), function (line_blob) {
                 ajaxData.append('line', line_blob);
                 post(ajaxData);

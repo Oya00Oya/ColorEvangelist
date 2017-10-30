@@ -239,7 +239,6 @@
     <div class="well">
         <div class="container">
 
-            <input id="blur_k" type="hidden"/>
             <h1>Colorization</h1>
             <div class="row" style="background: #cccccc;padding: 10px">
                 <div class="col-md-12" style="margin-bottom: 10px;">
