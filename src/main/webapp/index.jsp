@@ -226,7 +226,7 @@
                 <div class="col-md-6">
                     <input type="file" name="file" id="file1" onchange="filechange1(event)">
                     <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
-                    <img src="" style="max-width:100%;margin-top: 10px" id="img-change1"
+                    <img src="" style="max-width:100%;margin-top: 10px" id="input_sketch"
                          alt="Please click here to choose your picture.">
 
                 </div>
@@ -258,13 +258,13 @@
                 <div class="col-xs-11 col-sm-6" style="max-width: 100%;">
                     <div id="img_pane" style="display:none;">
                         <div id="wPaint" style="position:relative; background-color:rgba(0,0,255,0); border:solid 1px">
-                            <img id="background" style="max-width:100%" src="">
+                            <img id="colorization-ref" style="max-width:100%" src="">
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-1 visible-xs-block"></div><!-- for dragging on narrow screen(smartphones)-->
                 <div class="col-xs-11 col-sm-6">
-                    <img id="output" style="display:none; max-width:100%;">
+                    <img id="output_colorization" style="display:none; max-width:100%;">
                 </div>
                 <div class="col-xs-1 visible-xs-block"></div>
             </div>

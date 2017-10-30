@@ -35,7 +35,7 @@ $(function () {
     $('#img_pane').hide();
 
     $('#submit').click(function () {
-        if (!$('#background').attr('src')) {
+        if (!$('#colorization-ref').attr('src')) {
             alert('select a file');
         } else {
             colorize();
@@ -52,10 +52,10 @@ $(function () {
         set_file(file);
     });
 //改变背景的图片
-    $('#background').load(function () {
+    $('#colorization-ref').load(function () {
         $('#wPaint')
-            .width($('#background').width())
-            .height($('#background').height())
+            .width($('#colorization-ref').width())
+            .height($('#colorization-ref').height())
             .wPaint('resize');
         var wPaintOuterWidth = $('#wPaint').outerWidth(true);
         $('#img_pane .span6').width(wPaintOuterWidth);
@@ -84,7 +84,7 @@ $(function () {
             },
             success: function(outputFileName, textStatus) {//请求成功后调用的回调函数
                 console.log('uploaded:'+outputFileName);
-                $('#output').attr('src', ''+ 'func/output/colorization/'+outputFileName).show();
+                $('#output_colorization').attr('src', ''+ 'func/output/colorization/'+outputFileName).show();
                 $('#painting_status').hide();
             },
             error: function () {//失败
@@ -116,7 +116,7 @@ $(function () {
         $('#wPaint').wPaint('imageCanvas').toBlob(function (ref_blob) {
             var ajaxData = new FormData();
             ajaxData.append('ref', ref_blob);
-            blobUrlToBlob($('#background').attr('src'), function (line_blob) {
+            blobUrlToBlob($('#colorization-ref').attr('src'), function (line_blob) {
                 ajaxData.append('line', line_blob);
                 post(ajaxData);
             });
@@ -126,7 +126,7 @@ $(function () {
     function set_file(file) {
         console.log('set file');
         $('#img_pane').show('fast', function () {
-            $('#background').attr('src', window.URL.createObjectURL(file));
+            $('#colorization-ref').attr('src', window.URL.createObjectURL(file));
         });
     }
 });
