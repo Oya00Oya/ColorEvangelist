@@ -96,15 +96,9 @@ $(function () {
                 console.log('coloring start');
             },
             success: function(data, textStatus) {//请求成功后调用的回调函数
-                console.log('uploaded');
-
-                function timer_tick() {
-                    if(paint(data.id)){
-                        window.clearInterval(t1);
-                    }
-                }
-                t1 = window.setInterval(timer_tick, 1000);
-
+                console.log('uploaded:'+data);
+                $('#output').attr('src', ''+ 'func/output/colorization/'+data+'_out.png').show();
+                $('#painting_status').hide();
             },
             error: function () {//失败
                 $('#painting_status').attr('class', 'text-error').text('UPLOAD ERROR').show();
@@ -113,57 +107,13 @@ $(function () {
                 while( err_origin == origin ){  resetOrigin() }
             },
             complete: function () {//不管失败还是成功都回调用的
+                $('#submit').prop('disabled', false);//复原
                 console.log('post finish');
             }
         });
     }
 //用于与服务器进行数据交流
 
-
-    function paint(image_id) {
-        var paint_return = false;
-        var ajaxData = new FormData();
-        ajaxData.append('id', image_id);//添加字段id 为image_id
-
-        $.ajax({
-            type: 'POST',
-            url: origin + '/paint.do',
-            data: ajaxData,//这次的数据是一个FormData对象
-            cache: false,
-            async:false,
-            contentType: false,
-            processData: false,
-            dataType: 'text', // server response is broken
-            beforeSend: function () {
-                $('#painting_status').attr('class', '').text('NOW COLORING ...').show();
-                $('#submit').prop('disabled', true);//变为不能提交
-                console.log('coloring start');
-            },
-            success: function(data, textStatus) {
-                console.log('uploaded');
-                console.log(data);
-
-                $('#painting_status').hide();
-                var now = new Date().getTime();
-                $('#output').attr('src', ''+ 'func/output/colorization/'+data+'_out.png').show();//获取了当前的需要输出的图片的
-                // $('#output_min').attr('src', origin + '/images/out_min/' + image_id + '_0.png?' + now).show();//没什么用，并没有地方用这个输出了，
-                // 估计是获得一个小图版的
-
-                paint_return=true;
-            },
-            error: function () {
-                $('#painting_status').attr('class', 'text-error').text('SERVER ERROR').show();
-                err_origin = origin
-                while( err_origin == origin ){  resetOrigin() }
-            },
-            complete: function () {
-                $('#submit').prop('disabled', false);//复原
-                console.log('coloring finish');
-            }
-
-        });
-        return paint_return;
-    }
 //这个应该是获取到返回的输出图片
     function blobUrlToBlob(url, fn) {
         var xhr = new XMLHttpRequest();

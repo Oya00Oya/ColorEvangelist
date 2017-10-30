@@ -36,19 +36,8 @@ function post() {
         dataType:'txt',
         secureuri : false,
         success: function (data){
-            console.log(data)
-            var t1;
-            function timer_tick() {
-                console.log("timer_tick");
-                $.ajax({
-                    url: ''+ '/func/output/sketch/'+data+'_out.png',
-                    success: function () {
-                        $('#output_sketch').attr('src', '/func/output/sketch/'+data+'_out.png').show();
-                        window.clearInterval(t1);
-                    }
-                });
-            }
-            t1 = window.setInterval(timer_tick, 1000);
+            console.log(data);
+            $('#output_sketch').attr('src', '/func/output/sketch/'+data+'_out.png').show();
             post_return=true;
         },
         error:function(data,status,e){

@@ -101,7 +101,7 @@ public class testController {
     }
     @RequestMapping(value = "/upload/colorization.do")
     @ResponseBody
-    public String uploadColorization(@RequestParam("ref") MultipartFile file1, @RequestParam("line") MultipartFile file, @RequestParam("id") String id,@RequestParam("blur") String blur ,HttpServletRequest request) throws IOException {
+    public Long uploadColorization(@RequestParam("ref") MultipartFile file1, @RequestParam("line") MultipartFile file, @RequestParam("id") String id,@RequestParam("blur") String blur ,HttpServletRequest request) throws IOException {
         String tishi="no";
         String message1="";
         String message2="";
@@ -124,14 +124,15 @@ public class testController {
             re_image_name=time01;
            //下面与深度学习框架交互
             try {
-                String command=null;
-                command="python ../webapps/ROOT/func/colorization.py"+" "+message1+" "+message2+" "+"../webapps/ROOT/func/output/colorization/"+time01+"_out.png";
+                final String command="python ../webapps/ROOT/func/colorization.py"+" "+message1+" "+message2+" "+"../webapps/ROOT/func/output/colorization/"+time01+"_out.png";
                 log.info("command:"+command);
-                final Process p = Runtime.getRuntime().exec(command);
+//                System.out.println(Long.toString(System.currentTimeMillis()));
+                final Process p= Runtime.getRuntime().exec(command);
                 new Thread(new Runnable() {
 
 
                     public void run() {
+
                         BufferedReader br = new BufferedReader(
                                 new InputStreamReader(p.getInputStream()));
                         try {
@@ -162,9 +163,12 @@ public class testController {
                 while ((line = br.readLine()) != null) {
                     System.out.println(line);
                 }
+//                System.out.println(Long.toString(System.currentTimeMillis()));
                 p.waitFor();
+//                System.out.println(Long.toString(System.currentTimeMillis()));
                 br.close();
                 p.destroy();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -172,11 +176,6 @@ public class testController {
 
             tishi="yes";//返回yes,表示存储成功，可以使用try,catch来捕捉错误，这里偷懒不用
         }
-        return tishi;
-    }
-    @RequestMapping(value = "paint.do")
-    @ResponseBody
-    public   Long getColorizationOutputImageName(){
         return re_image_name;
     }
 }
