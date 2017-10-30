@@ -13,6 +13,8 @@
     <!-- 自动扫描  @Controller-->
     <context:component-scan base-package="com.heitian.ssm.controller"/>
 
+    <!--使用@responsebody注解并且返回值类型为String时，返回的string字符串带有双引号，其原因是直接将string类型转成了json字符串，应该在json解析器之前添加字符串解析器-->
+    <bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter"/>
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
@@ -26,6 +28,7 @@
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
+                <ref bean="stringHttpMessageConverter"/> <!-- JSON转换器 -->
                 <ref bean="mappingJacksonHttpMessageConverter"/> <!-- JSON转换器 -->
             </list>
         </property>

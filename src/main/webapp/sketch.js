@@ -35,9 +35,9 @@ function post() {
         fileElementId:'file1',//////////////////这个需要改吗
         dataType:'txt',
         secureuri : false,
-        success: function (data){
-            console.log(data);
-            $('#output_sketch').attr('src', '/func/output/sketch/'+data+'_out.png').show();
+        success: function (outputFileName){
+            console.log(outputFileName);
+            $('#output_sketch').attr('src', '/func/output/sketch/'+outputFileName).show();
             post_return=true;
         },
         error:function(data,status,e){

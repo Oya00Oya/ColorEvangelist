@@ -82,9 +82,9 @@ $(function () {
                 $('#submit').prop('disabled', true);//取消提交按钮的disable属性
                 console.log('coloring start');
             },
-            success: function(data, textStatus) {//请求成功后调用的回调函数
-                console.log('uploaded:'+data);
-                $('#output').attr('src', ''+ 'func/output/colorization/'+data+'_out.png').show();
+            success: function(outputFileName, textStatus) {//请求成功后调用的回调函数
+                console.log('uploaded:'+outputFileName);
+                $('#output').attr('src', ''+ 'func/output/colorization/'+outputFileName).show();
                 $('#painting_status').hide();
             },
             error: function () {//失败
@@ -121,12 +121,12 @@ $(function () {
                 post(ajaxData);
             });
         });
-    };
+    }
 
     function set_file(file) {
         console.log('set file');
         $('#img_pane').show('fast', function () {
             $('#background').attr('src', window.URL.createObjectURL(file));
         });
-    };
+    }
 });
