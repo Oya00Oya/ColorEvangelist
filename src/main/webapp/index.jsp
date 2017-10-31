@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PaintsPytorch</title>
+    <title>ColorEvangelist</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +63,7 @@
             </button>
             <span class="navbar-brand">
                 <img src="imgs/search_cat_128px_1141878_easyicon.net.png" style=" display: inline;width: 24px">
-                <a href="index.jsp">PaintsPytorch</a>
+                <a href="index.jsp">ColorEvangelist</a>
                 <a href="deblur.html">Deblur</a>
             </span>
         </div>
@@ -91,7 +91,7 @@
 </nav><!--nav-->
 <div class="jumbotron" id="intro">
     <div class="container">
-        <h1>Welcome to use PaintsPytorch</h1>
+        <h1>Welcome to use ColorEvangelist</h1>
         <hr>
         <p> It automatically applies the semantic features of an existing painting to an unfinished sketch.</p>
         <p>Two different functions can provide you with magical colouring experience!</p>
@@ -123,8 +123,6 @@
                             </div>
                         </div>
                         <div class="carousel-caption">
-                            <h1>Rem</h1>
-                            <p>Easy to get different style of Rem</p>
                             <a href="#" class="btn btn-lg btn-primary" role="button">Try now!!!</a>
                         </div>
                     </div>
@@ -137,8 +135,6 @@
                             </div>
                         </div>
                         <div class="carousel-caption">
-                            <h1>Hatsune Miku</h1>
-                            <p>Easy to get Pink Miku, Snow Miku or others</p>
                             <a href="#" class="btn btn-lg btn-primary" role="button">Try now!!!</a>
                         </div>
                     </div>
@@ -151,8 +147,8 @@
                             </div>
                         </div>
                         <div class="carousel-caption">
-                            <h1>Other characters</h1>
-                            <p>Also easy to create other characters,even your original.</p>
+                            <%--<h1>Other characters</h1>--%>
+                            <%--<p>Also easy to create other characters,even your original.</p>--%>
                             <a href="#" class="btn btn-lg btn-primary" role="button">Try now!!!</a>
                         </div>
                     </div>
@@ -282,7 +278,7 @@
                 <li><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
             </ul>
             <div class="copyright">
-                <p style="color: white">©2017 PaintsTorch <a href="#" target="_blank" title="">-- QiStudio</a></p>
+                <p style="color: white">©2017 ColorEvangelist <a href="#" target="_blank" title="">-- QiStudio</a></p>
             </div>
         </div>
     </footer>
