@@ -86,22 +86,21 @@
 </nav><!--nav-->
 
 <div class="fourpage" id="start">
-    <div class="well" >
-        <div class="container" >
-            <h1 style="color: #337ab7">Start to use</h1>
-            <span class="label label label-primary">What the hell is this part?</span>
-        <div class="row" >
-            <div class="col-md-6" style=" width: 325px;height: 500px;border: 1px solid #8c8c8c;align-content: center">
-                <input type="file" name="file" id="file1" style="display:none;" onchange="filechange1(event)">
-                <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
-                <img src="" width="300px" height="auto" id="img-change1" alt="Please click here to choose your picture.">
-                <br>
-                <button id="btn1" class="btn btn-primary">Update</button>
+    <div class="well">
+        <div class="container">
+            <h1>Sketch Extraction</h1>
+            <div class="row" style="background: #cccccc;padding: 10px;min-height: 300px;">
+                <div class="col-md-6">
+                    <input type="file" name="file" id="fileInputSketch" onchange="filechangeSketch(event)">
+                    <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
+                    <img src="" style="max-width:100%;margin-top: 10px" id="input_sketch"
+                         alt="Please click here to choose your picture.">
+
+                </div>
+                <div class="col-md-6">
+                    <img id="output_sketch" style="max-width:100%;margin-top: 34px" src="" alt="You will get your Picture here.">
+                </div>
             </div>
-            <div class="col-md-6" style=" width: 325px;height: 500px;border: 1px solid #8c8c8c">
-                <img id="output_sketch" src="" width="300px" height="auto" alt="You will get your Picture here.">
-            </div>
-        </div>
         </div>
     </div>
 </div>

@@ -3,7 +3,7 @@
  */
 
 /*$("#file").change(function (event) {*/
-var filechange1=function(event){
+var filechangeSketch=function(event){
     var files = event.target.files, file;
     if (files && files.length > 0) {
         // 获取目前上传的文件
@@ -28,7 +28,7 @@ function post() {
     var post_return=false;
     $.ajaxFileUpload({
         url: '/upload/sketch.do',
-        fileElementId:'file1',//////////////////这个需要改吗
+        fileElementId:'fileInputSketch',
         dataType:'txt',
         secureuri : false,
         success: function (outputFileName){

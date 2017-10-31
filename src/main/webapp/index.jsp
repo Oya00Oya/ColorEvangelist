@@ -224,7 +224,7 @@
             <h1>Sketch Extraction</h1>
             <div class="row" style="background: #cccccc;padding: 10px;min-height: 300px;">
                 <div class="col-md-6">
-                    <input type="file" name="file" id="file1" onchange="filechange1(event)">
+                    <input type="file" name="file" id="fileInputSketch" onchange="filechangeSketch(event)">
                     <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
                     <img src="" style="max-width:100%;margin-top: 10px" id="input_sketch"
                          alt="Please click here to choose your picture.">
@@ -255,9 +255,9 @@
             </div>
 
             <div class="row" style="background: #cccccc;padding: 45px 10px 10px 10px;min-height: 300px;">
-                <div class="col-xs-11 col-sm-6" style="max-width: 100%;">
-                    <div id="img_pane" style="display:none;">
-                        <div id="wPaint" style="position:relative; background-color:rgba(0,0,255,0); border:solid 1px">
+                <div class="col-xs-11 col-sm-6">
+                    <div id="img_pane" style="display:none;max-width: 100%">
+                        <div id="wPaint" style="position:relative; background-color:rgba(0,0,255,0); border:solid 1px;">
                             <img id="colorization-ref" style="max-width:100%" src="">
                         </div>
                     </div>

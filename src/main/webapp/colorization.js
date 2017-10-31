@@ -57,9 +57,6 @@ $(function () {
             .width($('#colorization-ref').width())
             .height($('#colorization-ref').height())
             .wPaint('resize');
-        var wPaintOuterWidth = $('#wPaint').outerWidth(true);
-        $('#img_pane .span6').width(wPaintOuterWidth);
-        $('#img_pane').width(wPaintOuterWidth * 2 + 30);
         colorize(); // update image_id
     });
 //这个load不是ajax的，是jQuery的load当背景加载完成后，运行该函数，应该与设定画板的大小有关
@@ -126,6 +123,10 @@ $(function () {
     function set_file(file) {
         console.log('set file');
         $('#img_pane').show('fast', function () {
+            //先重设wpaint大小，避免图片越变越小
+            $('#wPaint')
+                .css("width","100%")
+                .wPaint('resize');
             $('#colorization-ref').attr('src', window.URL.createObjectURL(file));
         });
     }
