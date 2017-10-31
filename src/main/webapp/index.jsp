@@ -69,7 +69,7 @@
         </div>
         <div class="collapse navbar-collapse navbar-right is-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#introduction">Introduction</a></li>
                 <li><a href="#howto">How to</a></li>
                 <li><a href="#start">Start</a></li>
                 <li class="dropdown">
@@ -89,17 +89,21 @@
         </div>
     </div>
 </nav><!--nav-->
-<div class="jumbotron" id="intro">
-    <div class="container">
+
+<div class="bg-attachment bg-attachment1" id="introduction">
+    <div class="bg-attachment-hidden">
         <h1>Welcome to use ColorEvangelist</h1>
-        <hr>
-        <p> It automatically applies the semantic features of an existing painting to an unfinished sketch.</p>
-        <p>Two different functions can provide you with magical colouring experience!</p>
-        <a href="#start">
-            <button class="btn btn-primary btn-lg " id="IntroHD">START NOW!!!</button>
-        </a>
+        <div>
+            <p> It automatically applies the semantic features of an existing painting to an unfinished sketch.</p>
+            <p>Two different functions can provide you with magical colouring experience!</p>
+        </div>
+        <img id="img_start_button" src="imgs/start_button.png" alt="start_button">
+        <img id="img_down_arrow" src="imgs/down_arrow.png" alt="down_arrow">
+        <p id="txt_start_button">Start</p>
     </div>
-</div><!--onepage-->
+</div>
+
+
 <div class="twopage" id="fourp">
     <div class="container" style="width: 70%">
         <div class="twopagetext">
