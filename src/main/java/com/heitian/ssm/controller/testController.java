@@ -93,6 +93,66 @@ public class testController {
         return outputFileNameBuilder(sessionId,time);
     }
 
+
+    @RequestMapping(value = "/upload/deblur.do")
+    @ResponseBody
+    public String uploadDeblur(@RequestParam("file") MultipartFile deblurFile, HttpServletRequest request) throws IOException {
+        log.info("uploadDeblur");
+        long time = System.currentTimeMillis();
+        if (deblurFile.isEmpty()) {
+            return null;
+        }
+        log.info("文件不为空");
+        String sessionId = request.getSession().getId();
+
+        String fileNameDeblur = inputFileNameBuilder(sessionId,time);//现在的文件名是时间戳加原文件名，出现图片相同时，读取不出来的bug
+        FileUtils.copyInputStreamToFile(deblurFile.getInputStream(), new File("../webapps/ROOT/func/input/deblur", fileNameDeblur));//将文件的输入流输出到一个新的文件
+
+        try {
+            String command = "python ../webapps/ROOT/func/deblur.py" + " ../webapps/ROOT/func/input/deblur/" + fileNameDeblur + " " + "../webapps/ROOT/func/output/deblur/" + outputFileNameBuilder(sessionId,time);
+            log.info("command:" + command);
+            final Process p1 = Runtime.getRuntime().exec(command);
+            new Thread(new Runnable() {
+                public void run() {
+                    BufferedReader br = new BufferedReader(
+                            new InputStreamReader(p1.getInputStream()));
+                    try {
+                        String line1 = null;
+                        int i = 0;
+                        while ((line1 = br.readLine()) != null) {
+                            System.out.println(line1);
+                            if (line1.equals("Success")) {
+                                System.out.println("py process is failed?");
+                                break;
+                            } else {
+
+                            }
+
+                        }
+
+                        br.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+            BufferedReader br = null;
+            br = new BufferedReader(new InputStreamReader(p1.getErrorStream()));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            p1.waitFor();
+            br.close();
+            p1.destroy();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return outputFileNameBuilder(sessionId,time);
+    }
+
+
+
     @RequestMapping(value = "/upload/colorization.do")
     @ResponseBody
     public String uploadColorization(@RequestParam("ref") MultipartFile refFile, @RequestParam("line") MultipartFile lineFile, HttpServletRequest request) throws IOException {

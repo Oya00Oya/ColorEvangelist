@@ -34,7 +34,6 @@
     <script src="wPaint/wPaint.min.js"></script>
     <script src="wPaint/plugins/main/src/wPaint.menu.main.js"></script>
     <!-- main -->
-    <script src="colorization.js"></script>
 
     <!-- fileend -->
     <style>
@@ -88,17 +87,16 @@
 <div class="fourpage" id="start">
     <div class="well">
         <div class="container">
-            <h1>Sketch Extraction</h1>
+            <h1>Deblur</h1>
             <div class="row" style="background: #cccccc;padding: 10px;min-height: 300px;">
                 <div class="col-md-6">
-                    <input type="file" name="file" id="fileInputSketch" onchange="filechangeSketch(event)">
-                    <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
-                    <img src="" style="max-width:100%;margin-top: 10px" id="input_sketch"
+                    <input type="file" name="file" id="fileInputDeblur" onchange="filechangeDeblur(event)">
+                    <img src="" style="max-width:100%;margin-top: 10px" id="input_deblur"
                          alt="Please click here to choose your picture.">
 
                 </div>
                 <div class="col-md-6">
-                    <img id="output_sketch" style="max-width:100%;margin-top: 34px" src="" alt="You will get your Picture here.">
+                    <img id="output_deblur" style="max-width:100%;margin-top: 34px" src="" alt="You will get your Picture here.">
                 </div>
             </div>
         </div>
@@ -124,6 +122,6 @@
 
 <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="sketch.js"></script>
+<script src="deblur.js"></script>
 </body>
 </html>
