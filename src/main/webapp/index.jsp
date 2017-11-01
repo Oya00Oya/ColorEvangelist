@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ColorEvangelist</title>
 
+    <script src="index.js"></script>
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -38,7 +39,6 @@
     <script src="wPaint/plugins/main/src/wPaint.menu.main.js"></script>
     <!-- main -->
     <script src="colorization.js"></script>
-    <script src="index.js"></script>
 
     <!-- fileend -->
     <style>
@@ -100,7 +100,7 @@
             <p> It automatically applies the semantic features of an existing painting to an unfinished sketch.</p>
             <p>Two different functions can provide you with magical colouring experience!</p>
         </div>
-        <div id="img_start_button" class="ripple" src="imgs/start_button.png" alt="start_button"></div>
+        <div id="img_start_button" class="ripple"></div>
         <img id="img_down_arrow" src="imgs/down_arrow.png" alt="down_arrow">
         <p id="txt_start_button">Start</p>
     </div>

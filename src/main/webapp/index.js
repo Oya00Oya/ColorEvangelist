@@ -1,11 +1,10 @@
 //首屏自适应高度
-var $window = $(window);
-$window.on("load resize", function () {
+$(window).on("load resize", function () {
     var h = window.innerHeight || document.body.clientHeight || document.documentElement.clientHeight;
     $(".bg-attachment1 .bg-attachment-hidden").css("height", h);
 });
 
-$window.on("load",function () {
+$(document).ready(function () {
     var scrll_to_start = function () {
         $('html,body').animate({scrollTop: $('#start').offset().top}, 800);
     };
