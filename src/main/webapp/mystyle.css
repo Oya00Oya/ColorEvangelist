@@ -30,12 +30,16 @@
     height: 31px;
 }
 
+.navbar-brand #btn-ColorEvangelist{
+    margin-left: 13px;
+}
+
+
 .navbar-brand a{
     font-family: 'sourcesanspro-bold';
     color: black;
     font-size: 23px;
     text-decoration: none;
-    margin-left: 14px;
 }
 
 #myTabcontent {

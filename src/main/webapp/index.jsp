@@ -62,9 +62,14 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="navbar-brand">
-                <img src="imgs/icon.png">
-                <a href="index.jsp">ColorEvangelist</a>
-                <a href="deblur.html">Deblur</a>
+                <img src="imgs/sss.jpg">
+                <button id="btn-ColorEvangelist" class="btn btn-default">
+                    <a href="index.jsp">ColorEvangelist</a>
+                </button>
+                <button id="btn-Deblur" class="btn btn-default">
+                    <a href="deblur.html">Deblur</a>
+                </button>
+
             </div>
         </div>
         <div class="collapse navbar-collapse navbar-right is-collapse">
@@ -267,22 +272,7 @@
         </div>
     </div>
 </div>
-<div class="fivepage" id="contt">
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <ul class="social-icons">
-                <li><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
-                <li><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
-                <li><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
-                <li><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
-            </ul>
-            <div class="copyright">
-                <p style="color: white">©2017 ColorEvangelist <a href="#" target="_blank" title="">-- QiStudio</a></p>
-            </div>
-        </div>
-    </footer>
-</div>
+
 <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
 
 <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
