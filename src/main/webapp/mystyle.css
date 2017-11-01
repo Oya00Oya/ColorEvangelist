@@ -33,7 +33,7 @@ body{
     padding: 100px 60px 60px 60px;
 }
 
-.bg-attachment1 .bg-attachment-hidden h1,h2,h3,h4,h5,h6,p {
+.bg-attachment1 .bg-attachment-hidden h1,.bg-attachment1 .bg-attachment-hidden h2,.bg-attachment1 .bg-attachment-hidden h3,.bg-attachment1 .bg-attachment-hidden h4,.bg-attachment1 .bg-attachment-hidden h5,.bg-attachment1 .bg-attachment-hidden h6,.bg-attachment1 .bg-attachment-hidden p {
     color: white;
 }
 
@@ -108,45 +108,54 @@ body{
     word-wrap: break-word;
 }
 
-.twopage {
-    height: 950px;
-    background-color: #cccccc;
-    /*margin-top: -50px;*/
+#gallery {
+    /*height: auto;*/
+    padding-top: 80px;
+    padding-bottom: 30px;
 }
 
-.piccc {
-    width: auto;
+#gallery > .container{
+    width: 65%;}
+
+
+#gallery .grey-container{
+    background-color: #f5f5f5;
+    padding: 2%;
 }
 
-.twopagetext {
-    color: white;
-    margin-top: 150px;
+
+.gallery-hint {
+    color: black;
     text-align: center;
     width: 100%;
 }
 
-.twopagetext p {
+.gallery-hint h1 {
+    font-family: 'sourcesanspro-bold';
+
+}
+
+.gallery-hint p {
+    font-family: 'sourcesanspro-bold';
+    color: #e78585;
     margin-top: 25px;
     font-size: 20px;
 }
 
-.twopage img {
-    width: 100%;
-    height: auto;
+#gallery img {
+    /*height: auto;*/
+    padding: 0;
 }
 
-.carousel {
-    height: 500px;
+/*修改指示器颜色*/
+.carousel-indicators li{
+    border: 1px solid black;
+}
+.carousel-indicators .active {
+    background-color: black;
 }
 
-.carousel .item {
-    height: 500px;
-}
-
-.carousel .item img {
-    width: 100%;
-}
-
+/*去除左右滑块的阴影*/
 .carousel-control.left {
     background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 100%);
     background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 100%);

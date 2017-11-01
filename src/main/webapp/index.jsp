@@ -54,6 +54,8 @@
     <![endif]-->
 </head>
 <body>
+
+<!--nav-->
 <nav class="navbar navbar-default navbar-static-top navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header nav-title">
@@ -90,8 +92,9 @@
             </ul>
         </div>
     </div>
-</nav><!--nav-->
+</nav>
 
+<!--introduction-->
 <div class="bg-attachment bg-attachment1" id="introduction">
     <div class="bg-attachment-hidden">
         <h1>Welcome to use ColorEvangelist</h1>
@@ -106,59 +109,48 @@
 </div>
 
 
-<div class="twopage" id="fourp">
-    <div class="container" style="width: 70%">
-        <div class="twopagetext">
+<div id="gallery">
+    <div class="container">
+        <div class="gallery-hint">
             <h1>Gallery</h1>
             <P>Different style of paintting can be made with this method </P>
         </div>
-        <div style="margin: 0 auto">
-            <div id="carousel-example-grneric" class="carousel slide" data-interval="3000" style="height: 350px;"
-                 data-ride="carousel">
-                <ol class="carousel-indicators" style="margin-top: 200px">
+
+        <div class="grey-container">
+            <div id="carousel-example-grneric" class="carousel slide" data-interval="3000" data-ride="carousel">
+                <ol class="carousel-indicators">
                     <li data-target="#carousel-example-grneric" data-slide="1" class="active"></li>
                     <li data-target="#carousel-example-grneric" data-slide="2" class=""></li>
                     <li data-target="#carousel-example-grneric" data-slide="3" class=""></li>
+                    <li data-target="#carousel-example-grneric" data-slide="4" class=""></li>
+                    <li data-target="#carousel-example-grneric" data-slide="5" class=""></li>
                 </ol>
+
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <div class="row">
-                            <div class="piccc">
-                                <img class="col-md-6  hidden-xs" src="imgs/rem.jpg" style="position: relative;"/>
-                                <img class="col-md-6 visible-xs-block" src="imgs/remb.jpg" style="position: relative;"/>
-                            </div>
-                        </div>
-                        <div class="carousel-caption">
-                            <a href="#" class="btn btn-lg btn-primary" role="button">Try now!!!</a>
-                        </div>
+                    <div class="item row active">
+                        <img class="col-md-6" src="imgs/carousel/1/s.png"/>
+                        <img class="col-md-6" src="imgs/carousel/1/c.png"/>
                     </div>
-                    <div class="item ">
-                        <div class="row">
-                            <div class="piccc">
-                                <img class="col-md-6 hidden-xs" src="imgs/mikunnnnn.jpg" style="position: relative;"/>
-                                <img class="col-md-6 visible-xs-block" src="imgs/mikunnnnnb.jpg"
-                                     style="position: relative;"/>
-                            </div>
-                        </div>
-                        <div class="carousel-caption">
-                            <a href="#" class="btn btn-lg btn-primary" role="button">Try now!!!</a>
-                        </div>
+                    <div class="item row">
+                        <img class="col-md-6" src="imgs/carousel/2/s.png"/>
+                        <img class="col-md-6" src="imgs/carousel/2/c.png"/>
                     </div>
-                    <div class="item ">
-                        <div class="row">
-                            <div class="piccc">
-                                <img class="col-md-6 hidden-xs" src="imgs/megumin04.jpg" style="position: relative;"/>
-                                <img class="col-md-6 visible-xs-block" src="imgs/migumin04b.jpg"
-                                     style="position: relative;"/>
-                            </div>
-                        </div>
-                        <div class="carousel-caption">
-                            <%--<h1>Other characters</h1>--%>
-                            <%--<p>Also easy to create other characters,even your original.</p>--%>
-                            <a href="#" class="btn btn-lg btn-primary" role="button">Try now!!!</a>
-                        </div>
+                    <div class="item row">
+                        <img class="col-md-6" src="imgs/carousel/3/s.png"/>
+                        <img class="col-md-6" src="imgs/carousel/3/c.png"/>
+                    </div>
+                    <div class="item row">
+                        <img class="col-md-6" src="imgs/carousel/4/s.png"/>
+                        <img class="col-md-6" src="imgs/carousel/4/c.png"/>
+                    </div>
+                    <div class="item row">
+                        <img class="col-md-6" src="imgs/carousel/5/s.png"/>
+                        <img class="col-md-6" src="imgs/carousel/5/c.png"/>
                     </div>
                 </div>
+                <!--<img class="col-md-6 hidden-xs" src="imgs/carousel/megumin04.jpg"/>-->
+                <!--<img class="col-md-6 visible-xs-block" src="imgs/carousel/migumin04b.jpg"/-->
+
                 <a class="left carousel-control" href="#carousel-example-grneric" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
@@ -167,9 +159,12 @@
                 </a>
             </div>
         </div>
+
     </div>
 
 </div>
+
+
 <div class="threepage well" id="howto">
     <div class="container">
         <h3>How to</h3>
@@ -233,7 +228,8 @@
 
                 </div>
                 <div class="col-md-6">
-                    <img id="output_sketch" style="max-width:100%;margin-top: 34px" src="" alt="You will get your Picture here.">
+                    <img id="output_sketch" style="max-width:100%;margin-top: 34px" src=""
+                         alt="You will get your Picture here.">
                 </div>
             </div>
         </div>
