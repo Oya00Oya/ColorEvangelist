@@ -61,11 +61,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span class="navbar-brand">
-                <img src="imgs/search_cat_128px_1141878_easyicon.net.png" style=" display: inline;width: 24px">
+            <div class="navbar-brand">
+                <img src="imgs/icon.png">
                 <a href="index.jsp">ColorEvangelist</a>
                 <a href="deblur.html">Deblur</a>
-            </span>
+            </div>
         </div>
         <div class="collapse navbar-collapse navbar-right is-collapse">
             <ul class="nav navbar-nav">

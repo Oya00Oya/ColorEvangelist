@@ -11,6 +11,33 @@
 #IntroHD{
     font-size: 20px;
 }
+
+
+.navbar{
+    background-color: white;
+}
+
+/*垂直居中*/
+.navbar-brand{
+    display: flex;
+    justify-content:center;
+    align-items:Center;
+}
+
+.navbar-brand img{
+    margin-left: 10px;
+    display: inline;
+    height: 31px;
+}
+
+.navbar-brand a{
+    font-family: 'sourcesanspro-bold';
+    color: black;
+    font-size: 23px;
+    text-decoration: none;
+    margin-left: 14px;
+}
+
 #myTabcontent {
     overflow: auto;
     word-wrap:break-word ;
