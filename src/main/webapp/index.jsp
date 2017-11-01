@@ -25,6 +25,8 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!--ripple波纹-->
+    <link rel="stylesheet" href="bower_components/css-ripple-effect/dist/ripple.min.css">
     <!-- wColorPicker -->
     <link rel="stylesheet" href="wPaint/lib/wColorPicker.min.css">
     <script src="wPaint/lib/paletteGenerator.js"></script>
@@ -98,7 +100,7 @@
             <p> It automatically applies the semantic features of an existing painting to an unfinished sketch.</p>
             <p>Two different functions can provide you with magical colouring experience!</p>
         </div>
-        <img id="img_start_button" src="imgs/start_button.png" alt="start_button">
+        <div id="img_start_button" class="ripple" src="imgs/start_button.png" alt="start_button"></div>
         <img id="img_down_arrow" src="imgs/down_arrow.png" alt="down_arrow">
         <p id="txt_start_button">Start</p>
     </div>
