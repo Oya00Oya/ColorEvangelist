@@ -36,6 +36,7 @@
     <script src="wPaint/plugins/main/src/wPaint.menu.main.js"></script>
     <!-- main -->
     <script src="colorization.js"></script>
+    <script src="index.js"></script>
 
     <!-- fileend -->
     <style>
