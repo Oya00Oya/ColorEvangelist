@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ColorEvangelist</title>
 
-    <script src="index.js"></script>
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -14,20 +13,20 @@
     <link href="mystyle.css" rel="stylesheet">
     <!-- font-awesome -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <!--////////////////////////////////////////////////////////////////////////////////////////;-->
-    <!-- Canvas toBlob polyfill -->
-    <script src="https://cdn.bootcss.com/javascript-canvas-to-blob/3.6.0/js/canvas-to-blob.min.js"></script>
     <!-- jQuery -->
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="ajaxfileupload.js"></script>
-    <!-- jQuery Cookie -->
-    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="index.js"></script>
     <!-- jQuery UI -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <!--ripple波纹-->
     <link rel="stylesheet" href="bower_components/css-ripple-effect/dist/ripple.min.css">
+    <script src="ajaxfileupload.js"></script>
+    <!-- jQuery Cookie -->
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- Canvas toBlob polyfill -->
+    <script src="https://cdn.bootcss.com/javascript-canvas-to-blob/3.6.0/js/canvas-to-blob.min.js"></script>
     <!-- wColorPicker -->
     <link rel="stylesheet" href="wPaint/lib/wColorPicker.min.css">
     <script src="wPaint/lib/paletteGenerator.js"></script>
