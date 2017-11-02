@@ -58,6 +58,7 @@ body{
     border-radius:50%;
     left: 50%;
     margin-left: -65px;
+    cursor: pointer;
 }
 
 /*#img_start_button:hover{*/
@@ -73,8 +74,20 @@ body{
     width: 130px;
     left: 50%;
     margin-left: -65px;
+    cursor: pointer;
 }
 
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    cursor: default;
+    /* Non-prefixed version, currently
+   not supported by any browser */
+}
 
 #img_down_arrow{
     position: absolute;

@@ -104,7 +104,7 @@
         </div>
         <div id="img_start_button" class="ripple"></div>
         <img id="img_down_arrow" src="imgs/down_arrow.png" alt="down_arrow">
-        <p id="txt_start_button">Start</p>
+        <p class="noselect" id="txt_start_button">Start</p>
     </div>
 </div>
 
