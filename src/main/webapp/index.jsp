@@ -118,13 +118,6 @@
 
         <div class="grey-container">
             <div id="carousel-example-grneric" class="carousel slide" data-interval="3000" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-grneric" data-slide="1" class="active"></li>
-                    <li data-target="#carousel-example-grneric" data-slide="2" class=""></li>
-                    <li data-target="#carousel-example-grneric" data-slide="3" class=""></li>
-                    <li data-target="#carousel-example-grneric" data-slide="4" class=""></li>
-                    <li data-target="#carousel-example-grneric" data-slide="5" class=""></li>
-                </ol>
 
                 <div class="carousel-inner" role="listbox">
                     <div class="item row active">
@@ -142,10 +135,6 @@
                     <div class="item row">
                         <img class="col-md-6" src="imgs/carousel/4/s.png"/>
                         <img class="col-md-6" src="imgs/carousel/4/c.png"/>
-                    </div>
-                    <div class="item row">
-                        <img class="col-md-6" src="imgs/carousel/5/s.png"/>
-                        <img class="col-md-6" src="imgs/carousel/5/c.png"/>
                     </div>
                 </div>
                 <!--<img class="col-md-6 hidden-xs" src="imgs/carousel/megumin04.jpg"/>-->
