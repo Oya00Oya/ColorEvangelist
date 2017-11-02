@@ -23,7 +23,6 @@ body {
 }
 
 .bg-attachment1 {
-    width: 100%;
     background: url(imgs/cbg.jpg) no-repeat fixed top center;
     background-size: cover;
 }
@@ -336,16 +335,26 @@ body {
     min-height: 300px;
 }
 
-/*.fourpage canvas{*/
-/*align-items: center;*/
-/*border: 1px solid #ccc;*/
-/*}*/
+.bg-attachment2 .bg-attachment-hidden{
+    margin-top: 40px;
+    font-family: 'sourcesanspro-bold';
+    color: white;
+    height: 300px;
+    background: url(imgs/more_examples_bg.png) no-repeat fixed center center;
+    background-size: cover;
+    display: flex;
+    justify-content:center;
+    align-items:Center;
+}
+
+.bg-attachment2 .bg-attachment-hidden h1{
+    margin: 0 auto;
+    font-size: 60px;
+}
 
 /*footer*/
 .fivepage {
-    background-image: url("imgs/Yande - 399190 tagme.png");
-    background-color: #cccccc;
-    background-position: center center;
+    background: #cccccc url("imgs/Yande - 399190 tagme.png") center center;
     background-size: cover;
     filter: alpha(Opacity=60);
     -moz-opacity: 0.6;
