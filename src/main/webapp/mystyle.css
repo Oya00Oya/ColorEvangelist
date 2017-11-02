@@ -61,11 +61,6 @@ body{
     cursor: pointer;
 }
 
-/*#img_start_button:hover{*/
-    /*background :url(imgs/start_button_hover.png) no-repeat center center;*/
-    /*background-size: 95% 95%;*/
-/*}*/
-
 #txt_start_button{
     position: absolute;
     font-family: 'sourcesanspro-bold';
@@ -134,7 +129,7 @@ body{
 }
 
 #gallery > .container{
-    width: 65%;}
+    width: 60%;}
 
 
 #gallery .grey-container{
@@ -164,6 +159,7 @@ body{
 #gallery .row{
     width: 100%;
     height: 100%;
+    margin: 0;
 }
 
 #gallery img {
