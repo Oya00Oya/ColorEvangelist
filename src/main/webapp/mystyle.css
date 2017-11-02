@@ -60,6 +60,11 @@ body{
     margin-left: -65px;
 }
 
+/*#img_start_button:hover{*/
+    /*background :url(imgs/start_button_hover.png) no-repeat center center;*/
+    /*background-size: 95% 95%;*/
+/*}*/
+
 #txt_start_button{
     position: absolute;
     font-family: 'sourcesanspro-bold';
@@ -69,6 +74,7 @@ body{
     left: 50%;
     margin-left: -65px;
 }
+
 
 #img_down_arrow{
     position: absolute;
