@@ -1,10 +1,14 @@
 //首屏自适应高度
-$(window).on("load resize", function () {
+var resize_first_screen_to_window_height = function () {
     var h = window.innerHeight || document.body.clientHeight || document.documentElement.clientHeight;
     $(".bg-attachment1 .bg-attachment-hidden").css("height", h);
-});
+};
+
+$(window).on("resize", resize_first_screen_to_window_height);
 
 $(document).ready(function () {
+    resize_first_screen_to_window_height();
+
     var scrll_to_start = function () {
         $('html,body').animate({scrollTop: $('#start').offset().top}, 800);
     };
