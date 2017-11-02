@@ -74,7 +74,7 @@
         <div class="collapse navbar-collapse navbar-right is-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#howto">How to</a></li>
+                <li><a href="#how-to-use">How to</a></li>
                 <li><a href="#start">Start</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -154,56 +154,34 @@
 </div>
 
 
-<div class="threepage well" id="howto">
-    <div class="container">
-        <h3>How to</h3>
-        <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="#step1" data-toggle="tab">Step1</a></li>
-            <li><a href="#step2" data-toggle="tab">Step2</a></li>
-            <li><a href="#step3" data-toggle="tab">Step3</a></li>
-        </ul>
-        <div id="myTabcontent" class="tab-content">
-            <div class="tab-pane fade in active" id="step1">
-                <div>
-                    <h1>Step 1</h1>
-                    <p>
-                        Please read the introduction First.
-                        <br>
-                        It will automatically colour after selecting the sketch.
-                    </p>
-                </div>
-                <div>
-                    <img src="imgs/delivery_cat_72px_1141867_easyicon.net.png" height="72" width="72"/></div>
-                <div>
+<div id="how-to-use">
 
-                </div>
+    <h1 class="how-to-use-hint">How to use</h1>
+    <div class="how-to-use-bg">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Sketch Extraction</h2>
+                <h3>Step1</h3>
+                <p>Select pictures or drag and drop images to the marked area</p>
+                <h3>Step2</h3>
+                <p>click the "upload" button</p>
+                <h3>Step3</h3>
+                <p>then you will get the sketch</p>
             </div>
-            <div class="tab-pane fade" id="step2">
-                <div>
-                    <h1>Step 2</h1>
-                    <P>
-                        You can choose colors from the palette to add color prompt colors to the sketch.
-                        <br>
-                    </P>
-                </div>
-                <div>
-                    <img src="imgs/phone_cat_72px_1141875_easyicon.net.png" height="72" width="72"/></div>
+            <div class="col-md-6">
+                <h2>Colorization</h2>
+                <h3>Step4</h3>
+                <p>It will automatically colour after selecting the sketch.You can choose the sketch that you get from "sketch extraction" or your own</p>
+                <h3>Step5</h3>
+                <p>You can choose colors from the palette to add color prompt colors to the sketch</p>
+                <h3>Step6</h3>
+                <p>Click the "colorize" button, if you want to colour again</p>
             </div>
-            <div class="tab-pane fade" id="step3">
-                <div>
-                    <h1>Step 3</h1>
-                    <P>
-                        Click the 'colorize' button,if you want to colour again.
-                        <br>
-                    </P>
-                </div>
-                <div>
-                    <img src="imgs/review_cat_72px_1141877_easyicon.net.png" height="72" width="72"/></div>
-            </div>
-
         </div>
     </div>
+
 </div><!--3page-->
+
 <div class="fourpage" id="start">
     <div class="well">
         <div class="container">

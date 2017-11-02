@@ -146,7 +146,6 @@ body{
 
 .gallery-hint h1 {
     font-family: 'sourcesanspro-bold';
-
 }
 
 .gallery-hint p {
@@ -196,13 +195,47 @@ body{
     background-repeat: repeat-x;
 }
 
-.threepage {
-    margin-top: 25px;
-    height: 500px;
+#how-to-use {
+    width: 100%;
+    margin-top: 80px;
 }
 
-.threepage p {
-    font-size: 25px;
+#how-to-use h1, #how-to-use h2{
+    color: black;
+    text-align: center;
+    width: 100%;
+}
+
+/*step*/
+#how-to-use h3{
+    margin-top: 45px;
+    font-family: 'sourcesanspro-regular';
+    color: #d01010;
+}
+
+#how-to-use p {
+    font-size: 18px;
+}
+
+/*How to use*/
+.how-to-use-hint{
+    font-family: 'sourcesanspro-bold';
+}
+
+/*sketch extraction, colorization*/
+.how-to-use-bg h2{
+    font-family: 'sourcesanspro-regular';
+    font-weight: lighter;
+}
+
+.how-to-use-bg{
+    background :url(imgs/how_to_use_bg.png) repeat center center;
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
+
+.how-to-use-bg .col-md-6{
+    padding: 15px 5% 30px 10%;
 }
 
 .fourpage {
