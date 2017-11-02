@@ -161,6 +161,7 @@
         <div class="row">
             <div class="col-md-6">
                 <h2>Sketch Extraction</h2>
+                <hr color="#f4aeb3"/>
                 <h3>Step1</h3>
                 <p>Select pictures or drag and drop images to the marked area</p>
                 <h3>Step2</h3>
@@ -168,8 +169,10 @@
                 <h3>Step3</h3>
                 <p>then you will get the sketch</p>
             </div>
+            <div class="vertical-line hidden-xs"></div>
             <div class="col-md-6">
                 <h2>Colorization</h2>
+                <hr color="#f4aeb3"/>
                 <h3>Step4</h3>
                 <p>It will automatically colour after selecting the sketch.You can choose the sketch that you get from "sketch extraction" or your own</p>
                 <h3>Step5</h3>

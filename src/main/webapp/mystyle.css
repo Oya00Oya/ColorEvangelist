@@ -229,6 +229,7 @@ body{
 }
 
 .how-to-use-bg{
+    position: relative;
     background :url(imgs/how_to_use_bg.png) repeat center center;
     padding-top: 20px;
     padding-bottom: 70px;
@@ -236,6 +237,19 @@ body{
 
 .how-to-use-bg .col-md-6{
     padding: 15px 5% 30px 10%;
+}
+
+.how-to-use-bg hr{
+    height: 2px;
+    width: 45%;
+}
+
+.how-to-use-bg .vertical-line{
+    position: absolute;
+    height: 60%;
+    top: 25%;
+    left: 50%;
+    border-right:2px solid #f4aeb3;
 }
 
 .fourpage {
