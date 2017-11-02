@@ -155,7 +155,6 @@
 
 
 <div id="how-to-use">
-
     <h1 class="how-to-use-hint">How to use</h1>
     <div class="how-to-use-bg">
         <div class="row">
@@ -181,64 +180,66 @@
                 <p>Click the "colorize" button, if you want to colour again</p>
             </div>
         </div>
+        <div id="start"></div>
     </div>
+</div>
 
-</div><!--3page-->
-
-<div class="fourpage" id="start">
-    <div class="well">
-        <div class="container">
-            <h1>Sketch Extraction</h1>
-            <div class="row" style="background: #cccccc;padding: 10px;min-height: 300px;">
-                <div class="col-md-6">
-                    <input type="file" name="file" id="fileInputSketch" onchange="filechangeSketch(event)">
-                    <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
-                    <img src="" style="max-width:100%;margin-top: 10px" id="input_sketch"
-                         alt="Please click here to choose your picture.">
-
-                </div>
-                <div class="col-md-6">
-                    <img id="output_sketch" style="max-width:100%;margin-top: 34px" src=""
-                         alt="You will get your Picture here.">
+<div class="job">
+    <div id="sketch">
+        <h1>Sketch Extraction</h1>
+        <div class="grey-container">
+            <div class="inner">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="file" name="file" id="fileInputSketch" onchange="filechangeSketch(event)">
+                        <!--//修改，这里如果不用onchange，会出现一个小bug,当你提交后，图片只能变一次-->
+                        <img id="input_sketch" src=""
+                             alt="Please click here to choose your picture.">
+                    </div>
+                    <div class="col-md-6">
+                        <img id="output_sketch" src=""
+                             alt="You will get your Picture here.">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="well">
-        <div class="container">
-
-            <h1>Colorization</h1>
-            <div class="row" style="background: #cccccc;padding: 10px">
-                <div class="col-md-12" style="margin-bottom: 10px;">
-                    <input id="load_file_colorization" type="file" style="display: inline;">
-                    <button id="submit" class="btn btn-large btn-primary" disabled>
-                        <i class="icon-edit icon-white"></i>
-                        color
-                    </button>
-                </div>
-                <div class="col-md-6">
-
-                    <span id="painting_status" style="display:none"></span>
-                </div>
-            </div>
-
-            <div class="row" style="background: #cccccc;padding: 45px 10px 10px 10px;min-height: 300px;">
-                <div class="col-xs-11 col-sm-6">
-                    <div id="img_pane" style="display:none;max-width: 100%">
-                        <div id="wPaint" style="position:relative; background-color:rgba(0,0,255,0); border:solid 1px;">
-                            <img id="colorization-ref" style="max-width:100%" src="">
-                        </div>
+    <div id="colorization">
+        <h1>Colorization</h1>
+        <div class="grey-container">
+            <div class="inner">
+                <div id="row_colorization_select_file" class="row">
+                    <div class="col-md-12" style="margin-bottom: 10px;">
+                        <input id="load_file_colorization" type="file" style="display: inline;">
+                        <button id="submit" class="btn btn-large btn-primary" disabled>
+                            <i class="icon-edit icon-white"></i>
+                            color
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <span id="painting_status" style="display:none"></span>
                     </div>
                 </div>
-                <div class="col-xs-1 visible-xs-block"></div><!-- for dragging on narrow screen(smartphones)-->
-                <div class="col-xs-11 col-sm-6">
-                    <img id="output_colorization" style="display:none; max-width:100%;">
+
+                <div id="row_colorization_input_output" class="row">
+                    <div class="col-xs-11 col-sm-6">
+                        <div id="img_pane">
+                            <div id="wPaint">
+                                <img id="colorization-ref" src="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-1 visible-xs-block"></div><!-- for dragging on narrow screen(smartphones)-->
+                    <div class="col-xs-11 col-sm-6">
+                        <img id="output_colorization">
+                    </div>
+                    <div class="col-xs-1 visible-xs-block"></div>
                 </div>
-                <div class="col-xs-1 visible-xs-block"></div>
             </div>
         </div>
     </div>
 </div>
+
 <div class="fivepage" id="contt">
     <!-- Footer -->
     <footer>
