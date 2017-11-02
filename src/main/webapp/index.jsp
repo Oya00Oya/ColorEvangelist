@@ -169,7 +169,7 @@
                 <h3>Step3</h3>
                 <p>then you will get the sketch</p>
             </div>
-            <div class="vertical-line hidden-xs"></div>
+            <div class="vertical-line visible-lg visible-md"></div>
             <div class="col-md-6">
                 <h2>Colorization</h2>
                 <hr color="#f4aeb3"/>
