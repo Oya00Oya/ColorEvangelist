@@ -6,19 +6,29 @@ var resize_first_screen_to_window_height = function () {
 
 $(window).on("resize", resize_first_screen_to_window_height);
 
+
+var scroll_to_smoothly_generator = function ($target) {
+    return function(){
+        $('html,body').animate({scrollTop: $target.offset().top}, 800);
+    }
+};
+
 $(document).ready(function () {
     resize_first_screen_to_window_height();
 
-    var scrll_to_start = function () {
-        $('html,body').animate({scrollTop: $('#start').offset().top}, 800);
-    };
+    var scroll_to_start = scroll_to_smoothly_generator($("#start"));
     //start按钮滚动到指定位置
     var $img_start_button = $("#img_start_button");
     var $txt_start_button = $("#txt_start_button");
 
-    $img_start_button.click(scrll_to_start);
-    $txt_start_button.click(scrll_to_start);
-    $("#img_down_arrow").click(scrll_to_start);
+    $img_start_button.click(scroll_to_start);
+    $txt_start_button.click(scroll_to_start);
+    $("#img_down_arrow").click(scroll_to_start);
+
+    $("ul.nav a").click(function (e) {
+        e.preventDefault();
+        scroll_to_smoothly_generator($($(this).attr("href")))();
+    });
 
 
     //start button hover
