@@ -173,7 +173,8 @@
                 <h2>Colorization</h2>
                 <hr color="#f4aeb3"/>
                 <h3>Step4</h3>
-                <p>It will automatically colour after selecting the sketch.You can choose the sketch that you get from "sketch extraction" or your own</p>
+                <p>It will automatically colour after selecting the sketch.You can choose the sketch that you get from
+                    "sketch extraction" or your own</p>
                 <h3>Step5</h3>
                 <p>You can choose colors from the palette to add color prompt colors to the sketch</p>
                 <h3>Step6</h3>
@@ -247,22 +248,13 @@
     </div>
 </div>
 
-<div class="fivepage">
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <ul class="social-icons">
-                <li><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
-                <li><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
-                <li><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
-                <li><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
-            </ul>
-            <div class="copyright">
-                <p style="color: white">©2017 ColorEvangelist <a href="#" target="_blank" title="">-- QiStudio</a></p>
-            </div>
-        </div>
-    </footer>
-</div>
+<footer>
+    <div class="container">
+        <img src="imgs/icon.png">
+        <h3>ColorEvangelist</h3>
+        <h5>&copy;2017 ColorEvangelist</h5>
+    </div>
+</footer>
 <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
 
 <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->

@@ -353,51 +353,30 @@ body {
 }
 
 /*footer*/
-.fivepage {
-    background: #cccccc url("imgs/Yande - 399190 tagme.png") center center;
-    background-size: cover;
-    filter: alpha(Opacity=60);
-    -moz-opacity: 0.6;
-    opacity: 0.6;
-    position: relative;
-    bottom: -19px;
+footer {
+    /*background: #cccccc url("imgs/Yande - 399190 tagme.png") center center;*/
+    /*background-size: cover;*/
+    /*filter: alpha(Opacity=60);*/
+    /*-moz-opacity: 0.6;*/
+    /*opacity: 0.6;*/
+    /*position: relative;*/
+    /*bottom: -19px;*/
     width: auto;
     height: auto;
     clear: both;
-}
-
-footer {
     text-align: center;
     padding-top: 75px;
     padding-bottom: 75px;
 }
 
-.copyright {
-    margin-top: 15px;
-    margin-bottom: 15px;
+footer h3{
+    font-family: 'sourcesanspro-regular';
+
 }
 
-.social-icons li {
-    display: inline;
-    margin: 2px;
+footer h5{
+    font-family: 'sourcesanspro-bold';
+    font-size: 16px;
+    color: #b0b0b0;
 }
 
-.social-icons li a {
-    font-size: 30px;
-    color: #ddd;
-    padding: 5px 10px;
-    border-radius: 10px;
-}
-
-.social-icons li a:hover {
-    text-decoration: none;
-}
-
-.social-icons li a {
-    background-color: #828682;
-    padding: 2px 5px;
-}
-
-.social-icons li a:hover {
-    color: #ffffff;
-}
