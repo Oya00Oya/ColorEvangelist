@@ -74,21 +74,10 @@
         <div class="collapse navbar-collapse navbar-right is-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#how-to-use">How to</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#how-to-use">How to use</a></li>
                 <li><a href="#start">Start</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        More
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="waterfal.html">More examples</a></li>
-                        <li><a href="https://www.hao123.com/">Links</a></li>
-                        <li class="divider"></li>
-                        <li><a href="http://weibo.com/u/5798464248?refer_flag=1001030201_&is_all=1">About</a></li>
-                        <li><a href="#contt">Contect us</a></li>
-                    </ul>
-                </li>
+                <li><a href="#copyright">About us</a></li>
             </ul>
         </div>
     </div>
@@ -252,7 +241,7 @@
     <div class="container">
         <img src="imgs/icon.png">
         <h3>ColorEvangelist</h3>
-        <h5>&copy;2017 ColorEvangelist</h5>
+        <h5 id="copyright">&copy;2017 ColorEvangelist</h5>
     </div>
 </footer>
 <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
