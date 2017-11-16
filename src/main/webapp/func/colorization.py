@@ -22,26 +22,26 @@ sketch, back = sketch.resize(desire_size, Image.BICUBIC), back.resize(desire_siz
 
 colormap = Image.new('RGBA', desire_size, (255, 255, 255))
 
-target_size = (sketch.size[0] // 64 * 16, sketch.size[1] // 64 * 16)
-valid_mask = (torch.FloatTensor(np.array(back.resize(target_size, Image.NEAREST))[:, :, 3].astype('float'))).gt(
+target_size = (sketch.size[0] // 16 * 16, sketch.size[1] // 16 * 16)  # TODO: test the influence of this part
+valid_mask = (torch.FloatTensor(
+    np.array(back.resize((target_size[1] // 4, target_size[0] // 4), Image.NEAREST))[:, :, 3].astype('float'))).gt(
     254).float().cuda().unsqueeze(0).unsqueeze(0)
 
 colormap.paste(back, (0, 0, desire_size[0], desire_size[1]), back)
 colormap = colormap.convert('RGB')
 
 ts = transforms.Compose([
-    transforms.Scale((target_size[1] * 4, target_size[0] * 4), Image.BICUBIC),
+    transforms.Scale((target_size[1], target_size[0]), Image.BICUBIC),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 ts2 = transforms.Compose([
-    transforms.Scale((target_size[1], target_size[0]), Image.NEAREST),
+    transforms.Scale((target_size[1] // 4, target_size[0] // 4), Image.NEAREST),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 sketch, colormap = ts(sketch), ts2(colormap)
 sketch, colormap = sketch.unsqueeze(0).cuda(), colormap.unsqueeze(0).cuda()
-
 
 mask = torch.rand(1, 1, colormap.shape[2], colormap.shape[3]).ge(0.2).float().cuda()
 mask = mask * valid_mask
