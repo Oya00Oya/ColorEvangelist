@@ -24,7 +24,7 @@ colormap = Image.new('RGBA', desire_size, (255, 255, 255))
 
 target_size = (sketch.size[0] // 16 * 16, sketch.size[1] // 16 * 16)  # TODO: test the influence of this part
 valid_mask = (torch.FloatTensor(
-    np.array(back.resize((target_size[1] // 4, target_size[0] // 4), Image.NEAREST))[:, :, 3].astype('float'))).gt(
+    np.array(back.resize((target_size[0] // 4, target_size[1] // 4), Image.NEAREST))[:, :, 3].astype('float'))).gt(
     254).float().cuda().unsqueeze(0).unsqueeze(0)
 
 colormap.paste(back, (0, 0, desire_size[0], desire_size[1]), back)
