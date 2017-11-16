@@ -68,7 +68,6 @@
             <div class="navbar-brand">
                 <img src="imgs/icon.png">
                 <a href="index.jsp">ColorEvangelist</a>
-                <a href="deblur.html">Deblur</a>
             </div>
         </div>
         <div class="collapse navbar-collapse navbar-right is-collapse">
