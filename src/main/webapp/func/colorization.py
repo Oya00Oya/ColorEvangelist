@@ -4,13 +4,13 @@ from torch.autograd import Variable
 from PIL import Image
 import sys
 import numpy as np
-from models.naive_model import def_netG
+from models.pro_model import def_netG
 
 desire_min = 512.0
 args = sys.argv
 
 netG = def_netG(ngf=64)
-netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only512_0.005_0.00001.pth'))
+netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only_4_0.00001.pth'))
 netG.cuda().eval()
 
 sketch = Image.open(args[2]).convert('L')
@@ -22,7 +22,7 @@ sketch, back = sketch.resize(desire_size, Image.BICUBIC), back.resize(desire_siz
 
 colormap = Image.new('RGBA', desire_size, (255, 255, 255))
 
-target_size = (sketch.size[0] // 16 * 16, sketch.size[1] // 16 * 16)  # TODO: test the influence of this part
+target_size = (sketch.size[0] // 16 * 16, sketch.size[1] // 16 * 16)  # make fully convolutional
 valid_mask = (torch.FloatTensor(
     np.array(back.resize((target_size[0] // 4, target_size[1] // 4), Image.NEAREST))[:, :, 3].astype('float'))).gt(
     254).float().cuda().unsqueeze(0).unsqueeze(0)
