@@ -10,7 +10,7 @@ desire_min = 512.0
 args = sys.argv
 
 netG = def_netG(ngf=64)
-netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only_4_0.00001.pth'))
+netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only_CP5.5_0.00001.pth'))
 netG.cuda().eval()
 
 sketch = Image.open(args[2]).convert('L')
@@ -43,7 +43,9 @@ ts2 = transforms.Compose([
 sketch, colormap = ts(sketch), ts2(colormap)
 sketch, colormap = sketch.unsqueeze(0).cuda(), colormap.unsqueeze(0).cuda()
 
-mask = torch.rand(1, 1, colormap.shape[2], colormap.shape[3]).ge(0.2).float().cuda()
+# mask = torch.rand(1, 1, colormap.shape[2], colormap.shape[3]).ge(0.85).float().cuda()
+h, w = colormap.shape[2]//2, colormap.shape[3]//2
+mask = torch.FloatTensor(([1,0]*h+[0,1]*h)*w).view(colormap.shape[2],colormap.shape[3]).cuda()
 mask = mask * valid_mask
 
 hint = torch.cat((colormap * mask, mask), 1)
