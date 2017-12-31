@@ -33,11 +33,13 @@ args = sys.argv
 netG = def_netG(ngf=64)
 netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only_CP5.5_0.00001.pth'))
 netG.cuda().eval()
-
+print("model loaded")
 while True:
     try:
         conn, addr = web.accept()
         data = conn.recv(1024)
+        print("data received")
+        print(data)
         if data == -1:
             continue
         msg = json.loads(data)
@@ -81,8 +83,12 @@ while True:
 
         out = netG(Variable(sketch, volatile=True), Variable(hint, volatile=True)).data
         transforms.ToPILImage()(out.mul(0.5).add(0.5).squeeze().cpu()).resize(ori_size, Image.BICUBIC).save(msg["out"])
-        conn.send(b'Success')
+
+        sent = conn.send('Success\r\n'.encode('utf-8'))
+        print("sent {}".format(sent))
+        print("Success")
     except Exception as e:
         logger.exception(e)
     finally:
         conn.close()
+        print("conn closed")
