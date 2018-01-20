@@ -5,10 +5,13 @@ from torch.autograd import Variable
 from PIL import Image
 import cv2
 import sys
+import os
 import json
 import numpy as np
 import socket
 from models.pro_model import def_netG
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 logger = logging.getLogger("logger")
 logger.setLevel(logging.DEBUG)

@@ -159,9 +159,6 @@ public class testController {
     }
 
 
-
-
-
     public String inputFileNameBuilder(String sessionId,Long time){
         return sessionId + "_" +time + ".png";
     }
