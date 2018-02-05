@@ -1,5 +1,6 @@
 import logging
 import torch.utils.data
+import torch.nn as nn
 import torchvision.transforms as transforms
 from torch.autograd import Variable
 from PIL import Image
@@ -9,7 +10,7 @@ import os
 import json
 import numpy as np
 import socket
-from models.pro_model import def_netG
+from models.iv_model import def_netG
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
@@ -33,10 +34,14 @@ web.listen(5)
 desire_min = 512.0
 args = sys.argv
 
-netG = def_netG(ngf=64)
-netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only_CP5.5_0.00001.pth'))
+netG = torch.nn.DataParallel(def_netG(ngf=64))
+netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only_YanACIV.pth'))
 netG.cuda().eval()
+
+
 print("model loaded")
+
+
 while True:
     try:
         conn, addr = web.accept()
@@ -81,10 +86,14 @@ while True:
         h, w = colormap.shape[2] // 2, colormap.shape[3] // 2
         mask = torch.FloatTensor(([1, 0] * h + [0, 1] * h) * w).view(colormap.shape[2], colormap.shape[3]).cuda()
         mask = mask * valid_mask
+        noise = torch.Tensor(1, 64, 1, 1).normal_(0, 1).cuda()
 
         hint = torch.cat((colormap * mask, mask), 1)
 
-        out = netG(Variable(sketch, volatile=True), Variable(hint, volatile=True)).data
+        out = netG(Variable(sketch, volatile=True),
+                   Variable(hint, volatile=True),
+                   Variable(noise),
+                   ).data
         transforms.ToPILImage()(out.mul(0.5).add(0.5).squeeze().cpu()).resize(ori_size, Image.BICUBIC).save(msg["out"])
 
         sent = conn.send('Success\r\n'.encode('utf-8'))
