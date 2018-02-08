@@ -3,6 +3,7 @@ import torch.utils.data
 import torch.nn as nn
 import torchvision.transforms as transforms
 from torch.autograd import Variable
+import torch.nn.functional as F
 from PIL import Image
 import cv2
 import sys
@@ -35,12 +36,17 @@ desire_min = 512.0
 args = sys.argv
 
 netG = torch.nn.DataParallel(def_netG(ngf=64))
-netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only_YanACIV.pth'))
+netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only_YanACIV_check1.pth'))
 netG.cuda().eval()
+to_tensor, to_pil = transforms.ToTensor(), transforms.ToPILImage()
+ts = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
+ts2 = transforms.Compose([
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 print("model loaded")
-
 
 while True:
     try:
@@ -54,47 +60,38 @@ while True:
         sketch = denoise(Image.open(msg["sketch"]).convert('L'))
         back = Image.open(msg["hint"]).convert('RGBA')
 
-        desire_size, ori_size = (int(desire_min / min(sketch.size) * sketch.size[0]),
-                                 int(desire_min / min(sketch.size) * sketch.size[1])), sketch.size
+        # desire fully convolutional
+        desire_size, ori_size = (int(desire_min / min(sketch.size) * sketch.size[0]) // 16 * 16,
+                                 int(desire_min / min(sketch.size) * sketch.size[1]) // 16 * 16), sketch.size
         sketch, back = sketch.resize(desire_size, Image.BICUBIC), back.resize(desire_size, Image.BICUBIC)
 
+        # retrieve down color map
         colormap = Image.new('RGBA', desire_size, (255, 255, 255))
-
-        target_size = (sketch.size[0] // 16 * 16, sketch.size[1] // 16 * 16)  # make fully convolutional
-        valid_mask = (torch.FloatTensor(
-            np.array(back.resize((target_size[0] // 4, target_size[1] // 4), Image.NEAREST))[:, :, 3].astype(
-                'float'))).gt(
-            254).float().cuda().unsqueeze(0).unsqueeze(0)
-
         colormap.paste(back, (0, 0, desire_size[0], desire_size[1]), back)
-        colormap = colormap.convert('RGB')
+        colormap = F.max_pool2d(
+            Variable((to_tensor(np.array(colormap.convert('RGB')))).cuda().unsqueeze(0)) * -1, 4, 4) * -1
 
-        ts = transforms.Compose([
-            transforms.Scale((target_size[1], target_size[0]), Image.BICUBIC),
-            transforms.ToTensor(),
-            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+        # retrieve down valid mask
+        valid_mask = F.max_pool2d(Variable(
+            (torch.FloatTensor(np.array(back)[:, :, 3].astype('float'))).gt(254).float().cuda().unsqueeze(0).unsqueeze(
+                0)), 4, 4)
 
-        ts2 = transforms.Compose([
-            transforms.Scale((target_size[1] // 4, target_size[0] // 4), Image.NEAREST),
-            transforms.ToTensor(),
-            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+        sketch, colormap = Variable(ts(sketch)).unsqueeze(0).cuda(), Variable(ts2(colormap.squeeze().data).unsqueeze(0))
 
-        sketch, colormap = ts(sketch), ts2(colormap)
-        sketch, colormap = sketch.unsqueeze(0).cuda(), colormap.unsqueeze(0).cuda()
-
-        # mask = torch.rand(1, 1, colormap.shape[2], colormap.shape[3]).ge(0.85).float().cuda()
         h, w = colormap.shape[2] // 2, colormap.shape[3] // 2
-        mask = torch.FloatTensor(([1, 0] * h + [0, 1] * h) * w).view(colormap.shape[2], colormap.shape[3]).cuda()
+        mask = Variable(
+            torch.FloatTensor(([1, 0] * h + [0, 1] * h) * w).view(colormap.shape[2], colormap.shape[3]).cuda())
         mask = mask * valid_mask
         noise = torch.Tensor(1, 64, 1, 1).normal_(0, 1).cuda()
 
         hint = torch.cat((colormap * mask, mask), 1)
 
-        out = netG(Variable(sketch, volatile=True),
-                   Variable(hint, volatile=True),
-                   Variable(noise),
-                   ).data
-        transforms.ToPILImage()(out.mul(0.5).add(0.5).squeeze().cpu()).resize(ori_size, Image.BICUBIC).save(msg["out"])
+        with torch.no_grad():
+            out = netG(sketch,
+                       hint,
+                       Variable(noise),
+                       ).data
+        to_pil(out.mul(0.5).add(0.5).squeeze().cpu()).resize(ori_size, Image.BICUBIC).save(msg["out"])
 
         sent = conn.send('Success\r\n'.encode('utf-8'))
         print("sent {}".format(sent))
