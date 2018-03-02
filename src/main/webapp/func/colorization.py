@@ -2,7 +2,6 @@ import logging
 import chainer
 import chainer.functions as F
 from chainer import Variable
-import chainercv
 from PIL import Image, ImageEnhance
 import cv2
 import sys
@@ -10,7 +9,8 @@ import os
 import json
 import numpy as np
 import socket
-from models.model import NetG
+import onnx
+import caffe2.python.onnx.backend as backend
 
 logger = logging.getLogger("logger")
 logger.setLevel(logging.DEBUG)
@@ -30,17 +30,23 @@ web = socket.socket()
 web.bind(('127.0.0.1', 1230))
 web.listen(5)
 
+RMEAN = np.array([164.76139251, 167.47864617, 181.13838569])
 desire_min = 512.0
 args = sys.argv
 
-netG = NetG(ngf=64)
-to_pil = lambda x: Image.fromarray(((x.array / 2 + 0.5) * 255).transpose(1, 2, 0))
+model = onnx.load("../webapps/ROOT/func/models/VBD.proto")
+netG = backend.prepare(model, device="CUDA:0")
+netG.predict_net.type = 'prof_dag'
+model = onnx.load("../webapps/ROOT/func/models/i2v.proto")
+netI = backend.prepare(model, device="CUDA:0")
+netI.predict_net.type = 'prof_dag'
+
+to_pil = lambda x: Image.fromarray(((x.array.astype('float') / 2 + 0.5) * 255).transpose(1, 2, 0))
 ts = lambda x: F.expand_dims(Variable((np.asarray(x).astype('float') / 255) * 2 - 1), 0)
 
 ts2 = lambda x: x * 2 - 1
 
 print("model loaded")
-chainercv.transforms.resize
 while True:
     try:
         conn, addr = web.accept()
@@ -62,14 +68,15 @@ while True:
         colormap = Image.new('RGBA', desire_size, (255, 255, 255))
         colormap.paste(back, (0, 0, desire_size[0], desire_size[1]), back)
         colormap = F.max_pooling_2d(
-            F.expand_dims(Variable(np.array(colormap.convert('RGB')).astype('float')).transpose(2, 0, 1), 0) * -1, 4,
+            F.expand_dims(
+                Variable((np.array(colormap.convert('RGB')).astype('float') / 255) * 2 - 1).transpose(2, 0, 1), 0) * -1,
+            4,
             4) * -1
 
         # retrieve down valid mask
         valid_mask = F.max_pooling_2d(
             F.expand_dims(F.expand_dims(Variable((np.array(back)[:, :, 3].astype('float') > 254).astype('float')), 0),
-                          0),
-            4, 4)
+                          0), 4, 4)
 
         sketch, colormap = F.expand_dims(ts(sketch), 0), ts2(colormap)
 
@@ -80,10 +87,16 @@ while True:
 
         hint = F.concat((colormap * F.broadcast_to(mask, (1, 3, colormap.shape[2], colormap.shape[3])), mask), 1)
 
-        with chainer.using_config('train', False):
-            out = netG(F.cast(sketch, np.float32),
-                       F.cast(hint, np.float32),
-                       )
+        ske_feat = netI.run(sketch.data.numpy())
+        ske_feat = (F.average_pooling_2d(Variable(ske_feat), 2, 2) / 2 + 0.5) * 255
+        ske_feat = (
+            F.broadcast_to(ske_feat, (1, 3, ske_feat.shape[2], ske_feat.shape[3])).transpose(
+                (0, 2, 3, 1)) - RMEAN).transpose((0, 3, 1, 2))
+        out = Variable(netG.run([sketch.data.numpy(),
+                                 hint.data.numpy(),
+                                 netI.run(sketch.data.numpy())
+                                 ]))
+
         to_pil(F.squeeze(out * 0.5 + 0.5)).resize(ori_size, Image.BICUBIC).save(msg["out"])
 
         sent = conn.send('Success\r\n'.encode('utf-8'))
