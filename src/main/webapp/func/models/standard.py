@@ -9,7 +9,7 @@ from torch.nn import init
 import torch.nn.functional as F
 import torchvision.models as M
 
-I2V_PATH = '/opt/tomcat/webapps/ROOT/func/models/i2v.pth'
+I2V_PATH = '../webapps/ROOT/func/models/i2v.pth'
 
 
 class ResNeXtBottleneck(nn.Module):
