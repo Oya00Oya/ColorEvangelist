@@ -41,7 +41,7 @@ model = onnx.load("../webapps/ROOT/func/models/i2v.proto")
 netI = backend.prepare(model, device="CUDA:0")
 netI.predict_net.type = 'prof_dag'
 
-to_pil = lambda x: Image.fromarray(((x.array.astype('float') / 2 + 0.5) * 255).transpose(1, 2, 0))
+to_pil = lambda x: Image.fromarray(((x.array.astype('float')) * 255).transpose(1, 2, 0).astype('uint8'))
 ts = lambda x: F.expand_dims(Variable((np.asarray(x).astype('float') / 255) * 2 - 1), 0)
 
 ts2 = lambda x: x * 2 - 1
@@ -62,6 +62,8 @@ while True:
         # desire fully convolutional
         desire_size, ori_size = (int(desire_min / min(sketch.size) * sketch.size[0]) // 16 * 16,
                                  int(desire_min / min(sketch.size) * sketch.size[1]) // 16 * 16), sketch.size
+
+        desire_size = (512, 512)
         sketch, back = sketch.resize(desire_size, Image.BICUBIC), back.resize(desire_size, Image.BICUBIC)
 
         # retrieve down color map
@@ -69,7 +71,7 @@ while True:
         colormap.paste(back, (0, 0, desire_size[0], desire_size[1]), back)
         colormap = F.max_pooling_2d(
             F.expand_dims(
-                Variable((np.array(colormap.convert('RGB')).astype('float') / 255) * 2 - 1).transpose(2, 0, 1), 0) * -1,
+                Variable((np.array(colormap.convert('RGB')).astype('float') / 255)).transpose(2, 0, 1), 0) * -1,
             4,
             4) * -1
 
@@ -87,15 +89,14 @@ while True:
 
         hint = F.concat((colormap * F.broadcast_to(mask, (1, 3, colormap.shape[2], colormap.shape[3])), mask), 1)
 
-        ske_feat = netI.run(sketch.data.numpy())
-        ske_feat = (F.average_pooling_2d(Variable(ske_feat), 2, 2) / 2 + 0.5) * 255
+        ske_feat = (F.average_pooling_2d(sketch, 2, 2) / 2 + 0.5) * 255
         ske_feat = (
             F.broadcast_to(ske_feat, (1, 3, ske_feat.shape[2], ske_feat.shape[3])).transpose(
                 (0, 2, 3, 1)) - RMEAN).transpose((0, 3, 1, 2))
-        out = Variable(netG.run([sketch.data.numpy(),
-                                 hint.data.numpy(),
-                                 netI.run(sketch.data.numpy())
-                                 ]))
+        out = Variable(netG.run([sketch.array.astype(np.float32),
+                                 hint.array.astype(np.float32),
+                                 netI.run(ske_feat.array.astype(np.float32))[0]
+                                 ])[0])
 
         to_pil(F.squeeze(out * 0.5 + 0.5)).resize(ori_size, Image.BICUBIC).save(msg["out"])
 
