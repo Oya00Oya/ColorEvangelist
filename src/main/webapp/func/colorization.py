@@ -11,7 +11,7 @@ import os
 import json
 import numpy as np
 import socket
-from models.iv_model import def_netG
+from models.standard import NetG
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
@@ -35,7 +35,7 @@ web.listen(5)
 desire_min = 512.0
 args = sys.argv
 
-netG = torch.nn.DataParallel(def_netG(ngf=64))
+netG = torch.nn.DataParallel(NetG(ngf=64))
 netG.load_state_dict(torch.load('/home/orashi/magics/monitors/VANBCE2.1/netG_epoch_only.pth'))
 netG.cuda().eval()
 to_tensor, to_pil = transforms.ToTensor(), transforms.ToPILImage()
