@@ -82,14 +82,11 @@ while True:
         mask = Variable(
             torch.FloatTensor(([1, 0] * h + [0, 1] * h) * w).view(colormap.shape[2], colormap.shape[3]).cuda())
         mask = mask * valid_mask
-        noise = torch.Tensor(1, 64, 1, 1).normal_(0, 1).cuda()
-
         hint = torch.cat((colormap * mask, mask), 1)
 
         with torch.no_grad():
             out = netG(sketch,
                        hint,
-                       Variable(noise),
                        ).data
         to_pil(out.mul(0.5).add(0.5).squeeze().cpu()).resize(ori_size, Image.BICUBIC).save(msg["out"])
 
