@@ -4,7 +4,7 @@ import torch.nn as nn
 import torchvision.transforms as transforms
 from torch.autograd import Variable
 import torch.nn.functional as F
-from PIL import Image
+from PIL import Image, ImageEnhance
 import cv2
 import sys
 import os
@@ -25,7 +25,7 @@ logger.addHandler(ch)
 
 
 def denoise(img):
-    return Image.fromarray(cv2.fastNlMeansDenoising(np.asarray(img), None, 10, 7, 21))
+    return img# Image.fromarray(cv2.fastNlMeansDenoising(np.asarray(img), None, 10, 7, 21))).enhance(1.5)
 
 
 web = socket.socket()
@@ -36,7 +36,7 @@ desire_min = 512.0
 args = sys.argv
 
 netG = torch.nn.DataParallel(def_netG(ngf=64))
-netG.load_state_dict(torch.load('../webapps/ROOT/func/netG_epoch_only_YanACIV_check1.pth'))
+netG.load_state_dict(torch.load('/home/orashi/magics/monitors/VANBCE2.1/netG_epoch_only.pth'))
 netG.cuda().eval()
 to_tensor, to_pil = transforms.ToTensor(), transforms.ToPILImage()
 ts = transforms.Compose([
