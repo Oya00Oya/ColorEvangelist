@@ -3,7 +3,6 @@ import chainer.functions as F
 import numpy as np
 from chainer.links.caffe import CaffeFunction
 from .conv import conv_function
-from .dilate_conv import dilated_conv_function
 
 NET_PATH = '../webapps/ROOT/func/models/params/'
 
@@ -24,7 +23,7 @@ class _ResNeXtBottleneck(chainer.Chain):
         super(_ResNeXtBottleneck, self).__init__()
         with self.init_scope():
             self.conv_reduce = conv_function(id + '_reduce')
-            self.conv_conv = dilated_conv_function(id + '_conv')
+            self.conv_conv = conv_function(id + '_conv')
             self.conv_expand = conv_function(id + '_expand')
 
     def __call__(self, x):

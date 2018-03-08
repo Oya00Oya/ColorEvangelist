@@ -253,9 +253,13 @@ class Convolution2D(link.Chain):
         num = _get_num(blobs[0])
         channels = _get_channels(blobs[0])
         bias_term = param.bias_term
-        
+
         n_in = channels * param.group
         n_out = num
+
+        dilate = param.dilation[0]
+        if dilate > 1:
+            pad = 1
 
         func = convolution_2d.Convolution2D(
             n_in, n_out, ksize, stride, pad, nobias=not bias_term,

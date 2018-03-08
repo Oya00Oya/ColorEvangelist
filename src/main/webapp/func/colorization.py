@@ -34,13 +34,13 @@ desire_min = 512.0
 args = sys.argv
 
 netG = NetG(ngf=64)
-to_pil = lambda x: Image.fromarray(((x.array / 2 + 0.5) * 255).transpose(1, 2, 0))
+to_pil = lambda x: Image.fromarray(((x.array.astype('float')) * 255).transpose(1, 2, 0).astype('uint8'))
 ts = lambda x: F.expand_dims(Variable((np.asarray(x).astype('float') / 255) * 2 - 1), 0)
 
 ts2 = lambda x: x * 2 - 1
 
 print("model loaded")
-chainercv.transforms.resize
+
 while True:
     try:
         conn, addr = web.accept()
@@ -62,14 +62,15 @@ while True:
         colormap = Image.new('RGBA', desire_size, (255, 255, 255))
         colormap.paste(back, (0, 0, desire_size[0], desire_size[1]), back)
         colormap = F.max_pooling_2d(
-            F.expand_dims(Variable(np.array(colormap.convert('RGB')).astype('float')).transpose(2, 0, 1), 0) * -1, 4,
+            F.expand_dims(
+                Variable((np.array(colormap.convert('RGB')).astype('float') / 255)).transpose(2, 0, 1), 0) * -1,
+            4,
             4) * -1
 
         # retrieve down valid mask
         valid_mask = F.max_pooling_2d(
             F.expand_dims(F.expand_dims(Variable((np.array(back)[:, :, 3].astype('float') > 254).astype('float')), 0),
-                          0),
-            4, 4)
+                          0), 4, 4)
 
         sketch, colormap = F.expand_dims(ts(sketch), 0), ts2(colormap)
 
