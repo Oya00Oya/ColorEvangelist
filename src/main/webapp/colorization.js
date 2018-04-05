@@ -24,6 +24,10 @@ $.fn.wPaint.extend({
 });
 //这个是用来延伸出那个canvas的画板的
 
+// $.extend($.fn.wColorPicker.defaults, {
+//     color: '#FFFFFF'
+// });
+
 $(function () {
 
     $('#img_pane').show(); // for $.fn.wPaint
